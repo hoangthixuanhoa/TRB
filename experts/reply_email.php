@@ -29,9 +29,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $reply_content = $_POST["reply_content"];
 
         // Thêm thông tin thư trả lời vào bảng "emails"
-        $sql_insert_reply = "UPDATE emails SET reply_content = ? WHERE id = ?";
+        $sql_insert_reply = "UPDATE emails SET reply_content = '$reply_content' WHERE id = '$email_id'";
+        mysqli_query($conn,$sql_insert_reply);
         $stmt_insert_reply = $conn->prepare($sql_insert_reply);
-        $stmt_insert_reply->bind_param("is", $reply_content, $email_id);
 
         if ($stmt_insert_reply->execute()) {
             $msg = "Thư trả lời đã được gửi thành công!";
