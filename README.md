@@ -36,6 +36,7 @@ Trang web được phát triển bởi:
 - Bấm nút "Thực hiện"
 - Chọn cơ sở dữ liệu "emo", chọn SQL sau đó dán toàn bộ đoạn code trong tệp "emo.sql" và bấm nút thực hiện
 - **Lưu ý: Với bác sĩ tâm lý sẽ có một trang web riêng, thư của người dùng gửi về sẽ được hiển thị ở đó. Để dảm bảo thì việc chỉ định một tài khoản là tài khoản của bác sĩ tâm lý sẽ được làm thủ công bằng cách thay đổi "role" (vai trò) của tài khoản thành "expert" trong bảng "users" của cơ sở dữ liệu "emo".**
+
 **LƯU Ý: ĐẦU TIÊN CẦN TẠO ÍT NHẤT 1 TÀI KHOẢN CHUYÊN GIA TRƯỚC**
 
 ## Chạy chương trình
