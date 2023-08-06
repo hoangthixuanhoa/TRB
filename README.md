@@ -12,10 +12,10 @@ Trang web gồm các chức năng chính:
 
 # Thành viên
 Trang web được phát triển bởi:
-- Phan Thanh Sơn: Trưởng nhóm, thiết kế giao diện
-- Nguyễn Minh Khôi: Thiết kế giao diện
-- Hoàng Thị Xuân Hoà: Lập trình sản phẩm
-- Nguyễn Xuân Lộc: Lập trình sản phẩm
+- Phan Thanh Sơn: Trưởng nhóm
+- Nguyễn Minh Khôi
+- Hoàng Thị Xuân Hoà
+- Nguyễn Xuân Lộc
 
 # Thiết lập
 
