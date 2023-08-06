@@ -36,6 +36,7 @@ CREATE TABLE emails (
     receiver_id INT(11) NOT NULL,
     title VARCHAR(100) NOT NULL,
     content TEXT NOT NULL,
+    reply_content TEXT,
     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (sender_id) REFERENCES users(id),
     FOREIGN KEY (receiver_id) REFERENCES users(id)
