@@ -88,8 +88,8 @@ if ($conn->connect_error) {
                     if($camxuc=='1')
                         {
                             echo "<div class='info-read'><p class='info-read-p'>Ngày viết: ",$date,"/",$month,"/",$year,"</p></div>";
-                            echo "<div class='info-read'><p class='info-read-p'>Cảm xúc: </p><p id='vui-prf'>Vui</p></div>";
-                            echo "<div class='info-read'><p class='info-read-p'>>Nội dung: ",$content, "</p></div>";
+                            echo "<div class='info-read' id='camxuc-read'><p class='info-read-p'>Cảm xúc: </p><p class='info-read-p' id='vui-prf'>Vui</p></div>";
+                            echo "<div class='info-read'><p class='info-read-p'>Nội dung: ",$content, "</p></div>";
                         }
                     elseif($camxuc=='2'){
                         echo "<div class='info-read'><p class='info-read-p'>Ngày viết: ",$date,"/",$month,"/",$year,"</p></div>";
@@ -98,8 +98,8 @@ if ($conn->connect_error) {
                     }
                     else{
                         echo "<div class='info-read'><p class='info-read-p'>Ngày viết: ",$date,"/",$month,"/",$year,"</p></div>";
-                        echo "<div class='info-read'><p class='info-read-p'>Cảm xúc: </p><p id='khac-prf'>Khác</p></div>";
-                        echo "<div class='info-read'><p class='info-read-p'>>Nội dung: ",$content, "</p></div>";
+                        echo "<div class='info-read' id='camxuc-read'><p class='info-read-p'>Cảm xúc: </p><p class='info-read-p' id='khac-prf'>Khác</p></div>";
+                        echo "<div class='info-read'><p class='info-read-p'>Nội dung: ",$content, "</p></div>";
                     }
                 }else{
                     echo "Không có dữ liệu";
