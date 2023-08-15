@@ -44,3 +44,12 @@ Trang web được phát triển bởi:
 - Chọn vào tên thư mục đã chứa toàn bộ tệp của dự án (Mặc định có tên là "EMO")
 - Cùng trải nghiệm thôi nào!
 
+---
+
+# To do list
+[] Gửi mail xác nhận và khi quên mật khẩu
+[] Nút để sửa lỗi
+[] Có thể thêm nút để apply thành bác sĩ
+[] Không hiển thị các nhật ký được đề cảm xúc "Khác"
+[] Thêm trang backend
+[] Giới hạn gửi thư tháng và giới hạn viết thư
