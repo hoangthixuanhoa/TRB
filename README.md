@@ -47,9 +47,10 @@ Trang web được phát triển bởi:
 ---
 
 # To do list
-[] Gửi mail xác nhận và khi quên mật khẩu
-[] Nút để sửa lỗi
-[] Có thể thêm nút để apply thành bác sĩ
-[] Không hiển thị các nhật ký được đề cảm xúc "Khác"
+[] Gửi mail để xác nhận và khi quên mật khẩu - `(Đăng nhập + Đăng ký)`
+[] Nút để sửa lỗi - `(Trang cá nhân)`
+[] Có thể thêm nút để apply thành bác sĩ `(Trang cá nhân)`
+[] Không hiển thị các nhật ký được đề cảm xúc "Khác" `(Xem nhật ký)` => Thêm các cảm xúc khác như tức giận,...
 [] Thêm trang backend
-[] Giới hạn gửi thư tháng và giới hạn viết thư
+[] Giới hạn gửi thư tháng và giới hạn viết thư `(Viết thư)`
+[] Trang giới thiệu các chuyên gia

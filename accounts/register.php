@@ -21,7 +21,6 @@
             regForm.onsubmit = validate;
         }
         window.onload = init;
-        
     </script>
 </head>
 <body>
