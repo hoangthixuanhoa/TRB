@@ -62,9 +62,9 @@ if ($conn->connect_error) {
             <div>
                 <form method="post" action="write_journal.php">
                     <div id="content-choice-emo">
-                        <button id="vui" class="item_emo" name="item_emo" onclick="write_journal()" value="vui">Vui</button>
-                        <button id="buon" class="item_emo" name="item_emo" onclick="write_journal()" value="buon">Buồn</button>
-                        <button id="other" class="item_emo" name="item_emo" onclick="write_journal()" value="khac">Khác</button>
+                        <button id="vui" class="item_emo" name="item_emo" onclick="write_journal()" value="1">Vui</button>
+                        <button id="buon" class="item_emo" name="item_emo" onclick="write_journal()" value="2">Buồn</button>
+                        <button id="other" class="item_emo" name="item_emo" onclick="write_journal()" value="3">Khác</button>
                     </div>
                 </form>
             </div>

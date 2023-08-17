@@ -25,14 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $day = $date['mday'];
     $month = $date['mon'];
     $year = $date['year'];
-    if ($camxuc=="vui"){
-        $camxuc=1;
-    }
-    elseif($camxuc=="buon"){
-        $camxuc=2;
-    }else{
-        $camxuc=3;
-    }
     $_SESSION['camxuc'] = $camxuc;
     $user_id = $_SESSION['user_id'];
     $content = $_POST['content_tamsu'];
@@ -57,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $error_jour="";
     // Lưu thư vào cơ sở dữ liệu
-    if(($result_check_day->num_rows > 0)and($result_check_month->num_rows > 0)and$result_check_year->num_rows > 0)
+    if(($result_check_day->num_rows > 0)and($result_check_month->num_rows > 0)and($result_check_year->num_rows > 0))
     {
         $error_jour="Một ngày chỉ viết 1 nhật kí!";
         $_SESSION['error_jour']=$error_jour;

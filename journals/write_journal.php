@@ -85,9 +85,9 @@ if (!isset($_SESSION["user_id"])) {
     <div id="camxuc">
         <label>Cảm xúc: </label>
         <?php 
-        if($camxuc=='vui'){
+        if($camxuc=='1'){
             echo "Vui";
-        } elseif ($camxuc=='buon'){
+        } elseif ($camxuc=='2'){
             echo "Buồn";
         } else{
             echo "Khác";
