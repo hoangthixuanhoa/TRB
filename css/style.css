@@ -89,7 +89,7 @@
     width: 470px;
 }
 #qs-home{
-    margin: 0px 530px 10px 530px;
+    display: inline-block;
     border-radius: 20px;
     border: 1px;
     box-shadow: 0px 5px 5px 5px #FFB0CD;
@@ -98,7 +98,7 @@
     margin-top: 60px;
 }
 #ask-home{
-    margin: 20px;
+    margin: 5px;
 }
 #choice-home{
     display: flex;
@@ -273,7 +273,7 @@
     display: block;
 }
 #vuon-content{
-    width: 90%;
+    width: 100%;
     height: 800px;
     display: flex;
     flex-direction: column-reverse;
@@ -411,17 +411,33 @@ hr{
 }
 #camxuc-read{
     display: flex;
+    margin: 20px 20px;
+    gap: 20px;
 }
 #read-container{
     border: 2px solid black;
     border-radius: 40px;
     padding-inline: 40px;
 }
-.info-read{
-    margin: 20px 20px;
-}
 .info-read-p{
     font-size: 20px;
     font-family: quicksand;
     font-weight: 600;
+}
+.btn_ch{
+        text-align: center;
+        width: 100px;
+        padding: 10px 10px;
+        font-family: Dela-Gothic-One;
+        font-size: 15px;
+        border-radius: 30px;
+        background-color: #FAA5C4;
+        color: white;
+}
+.btn-ch:hover{
+    background-color: white;
+    color: #F54B89;
+}
+#a-ch{
+    text-decoration: none;
 }

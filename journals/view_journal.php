@@ -99,13 +99,14 @@ if (!isset($_SESSION["user_id"])) {
                         echo "<div class='h3-viet' id='result-emo'><p>Số nhật ký vui nhiều hơn buồn</p></div>";
                     }
                     elseif($count_vui<$count_buon){
-                        echo "<div class='h3-viet' id='result-emo'><p>Số nhật ký buồn nhiều hơn vui</p></div";
+                        echo "<div class='h3-viet' id='result-emo'><p>Số nhật ký buồn nhiều hơn vui</p></div>";
+                    }
+                    else{
+                        echo "<div class='h3-viet' id='result-emo'><p>Cảm xúc trung hòa</p></div>";
                     }
                 } else{
                     echo "";
                 }
-                
-                
                 ?>
             </div>
         </div>
