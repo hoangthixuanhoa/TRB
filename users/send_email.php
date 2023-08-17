@@ -36,6 +36,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die("Kết nối thất bại: " . $conn->connect_error);
         }
 
+        // Kiểm tra xem người dùng có soạn quá 2 bức thư một tháng hay không
+        $sql_count_emails = "SELECT COUNT(*) AS total_emails FROM emails WHERE sender_id = ?";
+        $stmt_count_emails = $conn->prepare($sql_count_emails);
+        $stmt_count_emails->bind_param("i", $_SESSION["user_id"]);
+        $stmt_count_emails->execute();
+        $result_count_emails = $stmt_count_emails->get_result();
+        $row_count_emails = $result_count_emails->fetch_assoc();
+        $total_emails = $row_count_emails["total_emails"];
+
+        // Kiểm tra xem người dùng có viết quá 500 từ trong một bức thư hay không
+        $word_count = str_word_count($_POST["content"]);
+
+        // Nếu người dùng đã soạn quá 2 bức thư một tháng hoặc đã viết quá 500 từ trong một bức thư, thì chuyển hướng người dùng đến trang báo lỗi
+        if ($total_emails >= 2 || $word_count > 500) {
+            header("Location: ../redirect/gioihan.html");
+            exit();
+        }
+
         // Thêm thông tin thư vào bảng "emails"
         $sql_insert_email = "INSERT INTO emails (sender_id, receiver_id, title, content) VALUES (?, ?, ?, ?)";
         $stmt_insert_email = $conn->prepare($sql_insert_email);
@@ -57,11 +75,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Đóng kết nối
         $conn->close();
     } else {
-        header("Location: ../redirect/thu_fail.html ");
+        header("Location: ../redirect/loithu.html ");
     }
 } else {
-    header("Location: ../redirect/thu_fail.html ");
+    header("Location: ../redirect/loithu.html ");
 }
 ?>
-
-

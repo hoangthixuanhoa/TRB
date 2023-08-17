@@ -75,18 +75,6 @@
         <div class="tieude">
             <textarea name="content" id="content" placeholder="Nội dung lá thư..."></textarea>
         </div>
-        <div id="msg">
-            <?php
-                session_start();
-                $msg="";
-                if(isset($_SESSION['msg_mail']))
-                {
-                    $msg = $_SESSION['msg_mail'];
-                    echo "<p id='msg_fail'>", $msg, "</p>";
-                    unset($_SESSION['msg_mail']);
-                }
-            ?>
-        </div>
         <div class="cainut">
             <button type="submit">Gửi</button>
         </div>
