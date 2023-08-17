@@ -43,3 +43,5 @@ Trang web được phát triển bởi:
 - Trên thanh tìm kiếm của trình duyệt, gõ "localhost" và bấm Enter, trình duyệt sẽ tải trang "Index of"
 - Chọn vào tên thư mục đã chứa toàn bộ tệp của dự án (Mặc định có tên là "EMO")
 - Cùng trải nghiệm thôi nào!
+
+ádfasdfjkl
