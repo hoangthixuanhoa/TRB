@@ -61,23 +61,23 @@
                 if($result_emo->num_rows>0)
                 {
                     while($row=$result_emo->fetch_assoc())
+                    {
+                        $count++;
+                        //Lấy dữ liệu từ cột trong dòng hiện tại
+                        $id = $row['id'];
+                        $camxuc = $row['emotion'];
+                        $date = $row['date'];
+                        $month = $row['month'];
+                        $year = $row['year'];
+                        
+                        if($camxuc=='1')
                         {
-                            $count++;
-                            //Lấy dữ liệu từ cột trong dòng hiện tại
-                            $id = $row['id'];
-                            $camxuc = $row['emotion'];
-                            $date = $row['date'];
-                            $month = $row['month'];
-                            $year = $row['year'];
-                            
-                            if($camxuc=='1')
-                            {
-                               $count_vui++;
-                            }
-                            elseif ($camxuc=='2'){
-                                $count_buon++;
-                            }
+                            $count_vui++;
                         }
+                        elseif ($camxuc=='2'){
+                            $count_buon++;
+                        }
+                    }
                     $count = (int)$count;
                     $count_vui = (int)$count_vui;
                     $count_buon = (int)$count_buon;

@@ -29,27 +29,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_SESSION['user_id'];
     $content = $_POST['content_tamsu'];
     
-    $sql_check_day = "SELECT date FROM journals WHERE date=?";
-    $stmt_check_day = $conn->prepare($sql_check_day);
-    $stmt_check_day->bind_param("s", $day);
-    $stmt_check_day->execute();
-    $result_check_day = $stmt_check_day->get_result();
-
-    $sql_check_month = "SELECT month FROM journals WHERE month=?";
-    $stmt_check_month = $conn->prepare($sql_check_month);
-    $stmt_check_month->bind_param("s", $month);
-    $stmt_check_month->execute();
-    $result_check_month = $stmt_check_month->get_result();
-
-    $sql_check_year = "SELECT year FROM journals WHERE year=?";
-    $stmt_check_year = $conn->prepare($sql_check_year);
-    $stmt_check_year->bind_param("s", $year);
-    $stmt_check_year->execute();
-    $result_check_year = $stmt_check_year->get_result();
-
+    $sql_check_time = "SELECT date FROM journals WHERE date='$day' AND month='$month' AND year='$year' AND user_id='$user_id'";
+    $result_check_time = mysqli_query($conn, $sql_check_time);
     $error_jour="";
     // Lưu thư vào cơ sở dữ liệu
-    if(($result_check_day->num_rows > 0)and($result_check_month->num_rows > 0)and($result_check_year->num_rows > 0))
+    if(($result_check_time->num_rows != 0))
     {
         $error_jour="Một ngày chỉ viết 1 nhật kí!";
         $_SESSION['error_jour']=$error_jour;
