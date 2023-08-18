@@ -34,7 +34,7 @@
         <div class="recipient-wrapper">
             <label for="recipient">Người nhận:</label>
             <select id="recipient" name="recipient" required>
-                <option value="" selected disabled>Chọn chuyên gia</option>
+                <option value="" selected disabled>Chọn ngưởi nhận</option>
                     <?php
                     // Kết nối đến cơ sở dữ liệu (chú ý thay đổi thông tin kết nối phù hợp với máy bạn)
                     $servername = "localhost";
@@ -50,11 +50,11 @@
                         die("Kết nối thất bại: " . $conn->connect_error);
                     }
 
-                    // Truy vấn để lấy danh sách các chuyên gia
-                    $sql_get_experts = "SELECT id, username FROM users WHERE role = 'expert'";
+                    // Truy vấn để lấy danh sách người nhận
+                    $sql_get_experts = "SELECT id, username FROM users WHERE role = 'user'";
                     $result_get_experts = $conn->query($sql_get_experts);
 
-                    // Hiển thị danh sách các chuyên gia làm tùy chọn trong dropdown
+                    // Hiển thị danh sách các người nhận làm tùy chọn trong dropdown
                     if ($result_get_experts->num_rows > 0) {
                         while ($row = $result_get_experts->fetch_assoc()) {
                             echo '<option value="' . $row["id"] . '">' . $row["username"] . '</option>';
