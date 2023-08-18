@@ -101,7 +101,7 @@ if ($conn->connect_error) {
 
                 $conn->close();
             ?>
-            <button class="btn-ch" onclick="goChange()">Sửa</button>
+            <div class="info-read"><button class="btn_ch" onclick="goChange()">Sửa</button></div>
         </div>
     </main>
 </body>

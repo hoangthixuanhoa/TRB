@@ -412,7 +412,7 @@ hr{
 }
 #camxuc-read{
     display: flex;
-    margin: 20px 20px;
+    margin-block: 20px;
     gap: 20px;
 }
 #read-container{

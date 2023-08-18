@@ -92,8 +92,8 @@ if ($conn->connect_error) {
                         echo "<p class='info-read-p' id='khac-prf'><input type='radio' name='camxuc' value='3' checked>Khác</p></div>";
                     }
                     echo "<div class='info-read' style='display: flex;'><p class='info-read-p'>Nội dung: </p><input id='content_ch_in' name='content' type='text' value='",$content, "'></div>";
-                    echo "<a class='btn-ch' id='a-ch' href='read_journal.php?id=$id'>Hủy</a>";
-                    echo "<input class='btn-ch' type='submit' value='Lưu'>";
+                    echo "<div class='info-read'><a class='btn-ch' id='a-ch' href='read_journal.php?id=$id'>Hủy</a>";
+                    echo "<input class='btn-ch' type='submit' value='Lưu'></div>";
                     echo "</form>";
                 }else{
                     echo "Không có dữ liệu";
