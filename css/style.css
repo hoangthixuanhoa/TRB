@@ -425,19 +425,39 @@ hr{
     font-weight: 600;
 }
 .btn_ch{
-        text-align: center;
-        width: 100px;
-        padding: 10px 10px;
-        font-family: Dela-Gothic-One;
-        font-size: 15px;
-        border-radius: 30px;
-        background-color: #FAA5C4;
-        color: white;
+    width: 100px;
+    padding: 5px;
+    font-family: quicksand;
+    font-size: 20px;
+    border-radius: 30px;
+    background-color: #FAA5C4;
+    color: white;
+    margin-bottom: 10px;
+    font-weight: bold;
+    margin-inline: 5px;
 }
 .btn-ch:hover{
     background-color: white;
     color: #F54B89;
 }
 #a-ch{
+    padding: 5px 20px;
+    font-family: quicksand;
+    font-size: 20px;
+    border-radius: 30px;
+    background-color: #FAA5C4;
+    color: white;
+    margin-bottom: 10px;
+    font-weight: bold;
+    margin-inline: 5px;
     text-decoration: none;
+    border: 2px solid black;
+}
+#content_ch_in{
+    border: 2px solid;
+    border-radius: 20px;
+    font-size: 15px;
+    font-family: quicksand;
+    padding: 5px;
+
 }

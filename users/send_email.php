@@ -46,11 +46,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $total_emails = $row_count_emails["total_emails"];
 
         // Kiểm tra xem người dùng có viết quá 500 từ trong một bức thư hay không
-        $word_count = str_word_count($_POST["content"]);
-
+        $word_count = strlen($content);
+        $msg="";
         // Nếu người dùng đã soạn quá 2 bức thư một tháng hoặc đã viết quá 500 từ trong một bức thư, thì chuyển hướng người dùng đến trang báo lỗi
-        if ($total_emails >= 2 || $word_count > 500) {
-            header("Location: ../redirect/gioihan.html");
+        if ($total_emails >= 2) {
+            $msg = "Bạn không được gửi quá 2 bức thư mỗi tháng!";
+            $_SESSION['msg_mail']=$msg;
+            header("Location: view_reply.php");
+            exit();
+        }elseif ($word_count > 500){
+            $msg = "Số từ trong thư của bạn không được quá 500 từ!";
+            $_SESSION['msg_mail_tu']=$msg;
+            $_SESSION['title_send_mail'] = $title;
+            $_SESSION['content_send_mail']=$content;
+            header("Location: compose.php");
             exit();
         }
 
@@ -61,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt_insert_email->execute()) {
             $msg_mail = "Thư đã được gửi thành công";
-            $_SESSION['msg'] = $msg;
+            $_SESSION['msg'] = $msg_mail;
             header("Location: home.php");
         } else {
             $msg_mail = "Đã xảy ra lỗi. Vui lòng thử lại!";

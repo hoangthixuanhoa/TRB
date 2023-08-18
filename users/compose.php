@@ -69,12 +69,38 @@
         <br>
 
         <div class="tieude">
-            <input type="text" name="title" id="title" placeholder="Tiêu đề: ">
+            <?php
+                session_start();
+                if(isset($_SESSION['title_send_mail'])){
+                    $title = $_SESSION['title_send_mail'];
+                    echo "<input type='text' value='$title' name='title' id='title' placeholder='Tiêu đề: '>";
+                    unset($_SESSION['title_send_mail']);
+                }
+                else{
+                    echo "<input type='text' name='title' id='title' placeholder='Tiêu đề: '>";
+                }
+            ?>
         </div>
 
         <div class="tieude">
-            <textarea name="content" id="content" placeholder="Nội dung lá thư..."></textarea>
+            <?php 
+                if(isset($_SESSION['content_send_mail'])){
+                    $content = $_SESSION['content_send_mail'];
+                    echo "<textarea name='content' id='content' placeholder='Nội dung lá thư...' value='$content'></textarea>";
+                    unset($_SESSION['content_send_mail']);
+                }
+                else{
+                    echo "<textarea name='content' id='content' placeholder='Nội dung lá thư...'></textarea>";
+                }
+            ?>
         </div>
+        <?php
+        if(isset($_SESSION['msg_mail_tu'])){
+            $msg = $_SESSION['msg_mail_tu'];
+            echo $msg;
+            unset($_SESSION['msg_mail_tu']);
+        }
+        ?>
         <div class="cainut">
             <button type="submit">Gửi</button>
         </div>

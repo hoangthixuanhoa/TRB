@@ -24,15 +24,13 @@ html {
 
 /* Chỉnh cho ô thông báo  */
 .thongbao {
-    /* display: flex; */
     margin: 0 auto; /* Dùng 'auto' để căn giữa theo chiều ngang */
     width: 30%; /* Điều chỉnh rộng của ô vuông, có thể sử dụng giá trị theo ý muốn */
     margin-top: 40px;
     margin-bottom: 20px; /* Điều chỉnh khoảng cách giữa ô vuông và các phần tử phía dưới */
-    background-color: #FAA5C4;
-    border: 3px solid black;
-    border-radius: 20px;
-    padding: 20px; /* Thêm padding để tạo khoảng cách với phần chữ bên trong */
+    border-radius: 40px;
+    padding: 10px;
+    box-shadow: 0px 5px 5px 5px #FFB0CD;
 }
   
   /* Bổ sung một vài styles cho phần chữ bên trong */
@@ -40,12 +38,13 @@ html {
     text-align: center;
     margin: 0; /* Loại bỏ khoảng cách lề giữa đầu tiên và phần tử phía trên */
     padding: 5px; /* Tạo khoảng cách cho phần chữ bên trong ô vuông */
-    background-color: #FAA5C4;
+    font-family: Dela-Gothic-One;
+    font-size: 25px;
 }  
 
 /* Chỉnh cho chọn chuyên gia  */
 .recipient-wrapper {
-    width: 250px;
+    width: 300px;
     display: flex;
     align-items: center;
     margin-bottom: 10px;
@@ -54,16 +53,20 @@ html {
     border: 3px solid black;
     border-radius: 20px;
     padding: 10px;
-    margin-right: 10px;
     font-weight: bold;
+    font-family: quicksand;
+    font-size: 20px;
+
 }
 
 .recipient-wrapper select {
-    flex: 1; /* Take up remaining space in the flex container */
-    width: 50%;
-    padding: 7px;
+    flex: 1;
+    padding: 5px;
     border: none;
     background-color: #FFF6F0;
+    font-size: 15px;
+    font-family: quicksand;
+    text-align: center;
 }
 
 
@@ -75,12 +78,13 @@ html {
 
 /* Chỉnh ô nhập */
 
-input,
-textarea {
+input,textarea {
     width: 92%; /* Bao giờ đủ trình chèn ảnh thì để 1280px */
     padding: 10px;
     border: 3px solid black;
     border-radius: 20px;
+    font-family: quicksand;
+    font-size: 20px;
 }
 
 textarea {
@@ -97,11 +101,13 @@ button {
     font-weight: bolder;
     background-color: #FAA5C4;
     border-radius: 10px;
-    color: black;
     padding: 15px 30px;
     border: 3px solid black;
-    cursor: pointer;
-    display: block;
-    margin-top: 5px;
     float: right;
+    font-family: quicksand;
+    font-size: 20px;
+}
+button:hover{
+    background-color: white;
+    color: #FAA5C4;
 }

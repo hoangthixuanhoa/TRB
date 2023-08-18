@@ -16,6 +16,13 @@ if (!isset($_SESSION["user_id"])) {
     <title>Vườn</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/style.css" />
+    <?php
+        if(isset($_SESSION['error_jour'])){
+            $error = $_SESSION['error_jour'];
+            echo "<script> alert('$error');</script>";
+            unset($_SESSION['error_jour']);
+        }
+    ?>
     <style>
         #garden{
             text-shadow: 2px 2px 5px palevioletred;

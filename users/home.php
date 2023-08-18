@@ -30,6 +30,13 @@ if ($conn->connect_error) {
     <title>Trang chủ</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <?php
+        if(isset($_SESSION['msg'])){
+            $msg = $_SESSION['msg'];
+            echo "<script> alert('$msg');</script>";
+            unset($_SESSION['msg']);
+        }
+    ?>
     <script>
         function send_mail(){
             window.location.href = "compose.php";

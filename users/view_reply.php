@@ -44,6 +44,13 @@ $result_get_emails = $stmt_get_emails->get_result();
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/xemthu.css">
+    <?php
+        if(isset($_SESSION['msg_mail'])){
+            $msg = $_SESSION['msg_mail'];
+            echo "<script> alert('$msg');</script>";
+            unset($_SESSION['msg_mail']);
+        }
+    ?>
     <style>
         #img-user{
             height: 50px;
