@@ -34,7 +34,7 @@
         <div class="recipient-wrapper">
             <label for="recipient">Người nhận:</label>
             <select id="recipient" name="recipient" required>
-                <option value="" selected disabled>Chọn chuyên gia</option>
+                <option value="" selected disabled>Chọn ngưởi nhận</option>
                     <?php
                     // Kết nối đến cơ sở dữ liệu (chú ý thay đổi thông tin kết nối phù hợp với máy bạn)
                     $servername = "localhost";
@@ -50,11 +50,11 @@
                         die("Kết nối thất bại: " . $conn->connect_error);
                     }
 
-                    // Truy vấn để lấy danh sách các chuyên gia
-                    $sql_get_experts = "SELECT id, username FROM users WHERE role = 'expert'";
+                    // Truy vấn để lấy danh sách người nhận
+                    $sql_get_experts = "SELECT id, username FROM users WHERE role = 'user'";
                     $result_get_experts = $conn->query($sql_get_experts);
 
-                    // Hiển thị danh sách các chuyên gia làm tùy chọn trong dropdown
+                    // Hiển thị danh sách các người nhận làm tùy chọn trong dropdown
                     if ($result_get_experts->num_rows > 0) {
                         while ($row = $result_get_experts->fetch_assoc()) {
                             echo '<option value="' . $row["id"] . '">' . $row["username"] . '</option>';
@@ -69,38 +69,12 @@
         <br>
 
         <div class="tieude">
-            <?php
-                session_start();
-                if(isset($_SESSION['title_send_mail'])){
-                    $title = $_SESSION['title_send_mail'];
-                    echo "<input type='text' value='$title' name='title' id='title' placeholder='Tiêu đề: '>";
-                    unset($_SESSION['title_send_mail']);
-                }
-                else{
-                    echo "<input type='text' name='title' id='title' placeholder='Tiêu đề: '>";
-                }
-            ?>
+            <input type="text" name="title" id="title" placeholder="Tiêu đề: ">
         </div>
 
         <div class="tieude">
-            <?php 
-                if(isset($_SESSION['content_send_mail'])){
-                    $content = $_SESSION['content_send_mail'];
-                    echo "<textarea name='content' id='content' placeholder='Nội dung lá thư...' value='$content'></textarea>";
-                    unset($_SESSION['content_send_mail']);
-                }
-                else{
-                    echo "<textarea name='content' id='content' placeholder='Nội dung lá thư...'></textarea>";
-                }
-            ?>
+            <textarea name="content" id="content" placeholder="Nội dung lá thư..."></textarea>
         </div>
-        <?php
-        if(isset($_SESSION['msg_mail_tu'])){
-            $msg = $_SESSION['msg_mail_tu'];
-            echo $msg;
-            unset($_SESSION['msg_mail_tu']);
-        }
-        ?>
         <div class="cainut">
             <button type="submit">Gửi</button>
         </div>
