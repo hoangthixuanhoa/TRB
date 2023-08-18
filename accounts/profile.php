@@ -74,7 +74,7 @@
                             {
                                $count_vui++;
                             }
-                            else{
+                            elseif ($camxuc=='2'){
                                 $count_buon++;
                             }
                         }
@@ -84,9 +84,9 @@
                     $pre_vui = ($count_vui/$count)*100;
                     $pre_buon = ($count_buon/$count)*100;
                     $pre_khac = 100-$pre_vui-$pre_buon;
-                    $pre_vui = (int)$pre_vui;
-                    $pre_buon = (int)$pre_buon;
-                    $pre_khac = (int)$pre_khac;
+                    $pre_vui = round($pre_vui, 1);
+                    $pre_buon = round($pre_buon, 1);
+                    $pre_khac = round($pre_khac,1);
                 }
 
 
