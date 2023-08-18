@@ -16,18 +16,18 @@
         <div id="head-content">
             <div id="menu">
                 <ul id="menu-ul">
-                    <li><a class="menu-content" id="home" href="home.php">Trang chủ</a></li>
-                    <li><a class="menu-content" id="write" href="viet.php">Viết</a></li>
+                    <li><a class="menu-content" id="home" href="../users/home.php">Trang chủ</a></li>
+                    <li><a class="menu-content" id="write" href="../users/viet.php">Viết</a></li>
                     <li><img id="logo" src="../img/logo.png" height= "60px"></li>
                     <li><a class="menu-content" id="garden" href="../journals/view_journal.php">Vườn</a></li>
-                    <li><a class="menu-content" id="prf" href="view_reply.php"><img id="img-user" src="../img/letter.png"></a></li>
+                    <li><a class="menu-content" id="prf" href="../users/view_reply.php"><img id="img-user" src="../img/letter.png"></a></li>
                     <li><a class="menu-content" id="prf" href="../accounts/profile.php"><img id="img-user" src="../img//user.png"></a></li>
                 </ul>
             </div>
     </header>
 
     <div class="thongbao">
-        <h3>Bạn đang gặp phải vấn đề gì?</h3>
+        <h3>Hãy tâm sự cùng bạn bè nhé</h3>
     </div>
 
     <form action="send_email.php" method="post">

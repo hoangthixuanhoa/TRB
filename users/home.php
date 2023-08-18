@@ -87,8 +87,8 @@ if ($conn->connect_error) {
         <div id="choice-home">
             <div class="viet-home">
                 <div class="btn-container-home">
-                    <div class="btn-content"><button class="btn-home" onclick="send_mail()">Viết thư</button></div>
-                    <p class="text-home">Bạn đang gặp vấn đề và cần lời khuyên từ một chuyên gia tâm lý</p>
+                    <div class="btn-content"><button class="btn-home" onclick="window.location.href = '../letters/write_letter.php'">Viết thư</button></div>
+                    <p class="text-home">Bạn đang muốn viết thư cho một người khác để cùng chia sẻ</p>
                 </div>
             </div>
             <div class="viet-home">
