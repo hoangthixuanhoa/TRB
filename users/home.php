@@ -75,9 +75,7 @@ if ($conn->connect_error) {
                         <div><p id='text-thumb'>Mỗi người trong chúng ta đều ẩn chứa những tâm sự và những cảm xúc mãnh liệt nhưng lại khó nói.<img id="emo-home" src="../img/logo.png">sẽ là nơi ươm mầm cho khu vườn cảm xúc của bạn, là nơi bạn có thể thoải mái sống đúng với cảm xúc của bản thân và viết ra hết những dòng suy nghĩ đang nặng trĩu trong lòng. </p></div>
                     </div>
                 </div>
-                <div>
-                    <img src="../img/Rainbow.png" id="rainbow">
-                </div>
+                
             </div>
         </div>
         <div id='pattern'></div>

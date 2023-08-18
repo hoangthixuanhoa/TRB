@@ -85,9 +85,7 @@
     height: 33px;
     margin-block: -8px;
 }
-#rainbow{
-    width: 470px;
-}
+
 #qs-home{
     margin: auto;
     display: table;
@@ -447,9 +445,8 @@ hr{
     border-radius: 30px;
     background-color: #FAA5C4;
     color: white;
-    margin-bottom: 10px;
     font-weight: bold;
-    margin-inline: 5px;
+    margin: 10px 5px;
     text-decoration: none;
     border: 2px solid black;
 }
