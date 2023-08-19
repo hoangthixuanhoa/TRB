@@ -42,7 +42,7 @@ CREATE TABLE emails (
     FOREIGN KEY (receiver_id) REFERENCES users(id)
 );
 
--- Bảng letter
+-- Bảng letters
 CREATE TABLE letters (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     sender_id INT(11) NOT NULL,

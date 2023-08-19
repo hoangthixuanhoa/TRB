@@ -84,8 +84,8 @@
 
         <div class="tieude">
             <?php 
-                if(isset($_SESSION['content_send_mail'])){
-                    $content = $_SESSION['content_send_mail'];
+                if(isset($_SESSION[''])){
+                    $content = $_SESSION['content_scontent_send_mailend_mail'];
                     echo "<textarea name='content' id='content' placeholder='Nội dung lá thư...' value='$content'></textarea>";
                     unset($_SESSION['content_send_mail']);
                 }

@@ -18,8 +18,8 @@ if ($_SESSION["role"] !== 'user') {
 
 // Kiểm tra xem có dữ liệu được gửi từ form soạn thư hay không
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["recipient"]) && isset($_POST["title"]) && isset($_POST["content"])) {
-        $recipient_id = $_POST["recipient"];
+    if (isset($_POST["recipient_name"]) && isset($_POST["title"]) && isset($_POST["content"])) {
+        $recipient_id = $_POST["recipient_name"];
         $title = $_POST["title"];
         $content = $_POST["content"];
 
@@ -42,13 +42,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt_insert_email->bind_param("iiss", $_SESSION["user_id"], $recipient_id, $title, $content);
 
         if ($stmt_insert_email->execute()) {
-            $msg_mail = "Thư đã được gửi thành công";
+            $msg = "Thư đã được gửi thành công";
             $_SESSION['msg'] = $msg;
-            header("Location: home.php");
+            header("Location: ../users/home.php");
         } else {
-            $msg_mail = "Đã xảy ra lỗi. Vui lòng thử lại!";
+            $msg = "Đã xảy ra lỗi. Vui lòng thử lại!";
             $_SESSION['msg'] = $msg;
-            header("Location: compose.php ");
+            header("Location: write_letter.php ");
         }
 
         // Đóng câu lệnh Prepared Statement
