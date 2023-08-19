@@ -83,9 +83,9 @@ if (!isset($_SESSION["user_id"])) {
                         }
                         if ($count_vui>$count_buon)
                         {
-                            echo "<a class='a-forest' href='read_journal.php?id=",$id,"'><div class='container-view'><img class='img_emo' src='../img/vui.png'><div class='name-view'>",$name_user,"</div></div></a>";
+                            echo "<a class='a-forest' href='info.php?id=",$id_user,"'><div class='container-view'><img class='img_emo' src='../img/vui.png'><div class='name-view'>",$name_user,"</div></div></a>";
                         }elseif($count_buon>$count_vui){
-                            echo "<a class='a-forest' href='read_journal.php?id=",$id,"'><div class='container-view'><img class='img_emo' src='../img/buon.png'><div class='name-view'>",$name_user,"</div></div></a>";
+                            echo "<a class='a-forest' href='info.php?id=",$id_user,"'><div class='container-view'><img class='img_emo' src='../img/buon.png'><div class='name-view'>",$name_user,"</div></div></a>";
                         }
                     }
                 }
