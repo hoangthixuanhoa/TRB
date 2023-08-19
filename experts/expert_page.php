@@ -2,12 +2,12 @@
 session_start(); // Gọi session_start() chỉ một lần
 
 if (!isset($_SESSION["user_id"])) {
-    header("Location: accounts/login.html");
+    header("Location: ../accounts/login.html");
     exit();
 }
 
-if ($_SESSION["role"] !== 'expert') {
-    header("Location: users/home.php");
+if ($_SESSION["role"] != 'expert') {
+    header("Location: ../users/home.php");
     exit();
 }
 

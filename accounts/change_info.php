@@ -22,17 +22,6 @@ if (!isset($_SESSION["user_id"])) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Poppins:wght@400;700&family=Quicksand:wght@400;700&family=Raleway:wght@300;900&display=swap" rel="stylesheet">
         
-        <script>
-            function question(){
-                if(confirm('Bạn có chắc muốn đăng xuất?'))
-                {
-                    window.location.href = "logout.php";
-                }
-            }
-            function change_info(){
-                window.location.href = "change_info.php";
-            }
-        </script>
     </head>
 
     <body>
@@ -55,13 +44,6 @@ if (!isset($_SESSION["user_id"])) {
         <main id="main-prf">
             
             <?php
-                $count = 0;
-                $count_vui=0;
-                $count_buon=0;
-                $pre_vui = 0;
-                $pre_buon = 0;
-                $pre_khac = 0;
-                $userID = $_SESSION['user_id'];
                 $servername = "localhost";
                 $username = "emo";
                 $password = "123456EmoR2";
@@ -70,40 +52,7 @@ if (!isset($_SESSION["user_id"])) {
                 if ($conn->connect_error) {
                     die("Kết nối thất bại: " . $conn->connect_error);
                 }
-                $sql_emo = "SELECT * FROM journals WHERE user_id='$userID';";
-                $result_emo = $conn->query($sql_emo);
-                if($result_emo->num_rows>0)
-                {
-                    while($row=$result_emo->fetch_assoc())
-                    {
-                        $count++;
-                        //Lấy dữ liệu từ cột trong dòng hiện tại
-                        $id = $row['id'];
-                        $camxuc = $row['emotion'];
-                        $date = $row['date'];
-                        $month = $row['month'];
-                        $year = $row['year'];
-                        
-                        if($camxuc=='1')
-                        {
-                            $count_vui++;
-                        }
-                        elseif ($camxuc=='2'){
-                            $count_buon++;
-                        }
-                    }
-                    $count = (int)$count;
-                    $count_vui = (int)$count_vui;
-                    $count_buon = (int)$count_buon;
-                    $pre_vui = ($count_vui/$count)*100;
-                    $pre_buon = ($count_buon/$count)*100;
-                    $pre_khac = 100-$pre_vui-$pre_buon;
-                    $pre_vui = round($pre_vui, 1);
-                    $pre_buon = round($pre_buon, 1);
-                    $pre_khac = round($pre_khac,1);
-                }
-
-
+                
                 // Truy vấn thông tin gười dùng
                 $user_id = $_SESSION["user_id"];
                 $sql_user = "SELECT * FROM users WHERE id='$user_id';";
@@ -116,31 +65,39 @@ if (!isset($_SESSION["user_id"])) {
                         //Lấy dữ liệu từ cột trong dòng hiện tại
                         $user_id = $row['id'];
                         $username=$row['username'];
-                        $email = $row['email'];
                         $public = $row['public'];
+
                     }
-                    if($public=='public'){
-                        $chedo="Công khai";
+                    echo "<form method='post' action='update_info.php'>";
+                    echo "<div id='ten-prf'><h3 id='div-content-prf'>Tên người dùng: </h3><input id='content_ch_info' name='name_ch' value='", $username, "'></div>";
+                    echo "<br>";
+                    if(isset($_SESSION['error_chInfo'])){
+                        $error_chInfo = $_SESSION['error_chInfo'];
+                        echo "<p class='error'>$error_chInfo</p>";
+                        echo "<br>";
+                        unset($_SESSION['error_chInfo']);
+                    }
+                    echo "<hr>";
+                    echo "<br>";
+                    echo "<br>";
+                    if($public=='public')
+                    {
+                        echo "<div class='info-read' id='chedo'><p class='info-read-p'>Chế độ rừng: </p><p class='info-read-p'><input type='radio' name='chedo' value='public' checked>Công khai</p>";
+                        echo "<p class='info-read-p'><input type='radio' name='chedo' value='private' >Riêng tư</p></div>";
                     }else{
-                        $chedo="Riêng tư";
+                        echo "<div class='info-read' id='chedo'><p class='info-read-p'>Chế độ rừng: </p><p class='info-read-p'><input type='radio' name='chedo' value='public'>Công khai</p>";
+                        echo "<p class='info-read-p'><input type='radio' name='chedo' value='private' checked>Riêng tư</p></div>";
                     }
-                    echo "<div id='ten-prf'><h3 id='div-content-prf'>Tên người dùng: </h3><p id='ten-txt'>", $username, "</p></div>";
-                    echo "<br><hr>";
                     echo "<br>";
-                    echo "<p class='info-prf'>Số cây trong vườn:",$count, " </p><br>";
-                    echo "<div id='camxuc-prf'><p class='info-prf'>Cảm Xúc gần đây: <ul id='ul-prf'><li id='vui-prf'>", $pre_vui, "%</li><li id='buon-prf'>", $pre_buon, "%</li><li id= 'khac-prf'>", $pre_khac, "%</li></ul></p></div><br>";
-                    echo "<p class='info-prf'>Email: ", $email, "</p><br>";
-                    echo "<br>";
-                    echo "<p class='info-prf'>Chế độ rừng: ", $chedo, "</p><br>";
-                    echo "<br>";
+                    echo "<a href='profile.php' style='text-decoration: none; color: black;' class='info-prf' id='logout' onclick='cancel()'>Hủy</a>";
+                    echo "<input class='info-prf' id='change_info' value='Lưu' type='submit'>";
+                    echo "</form>";
                 }else{
                     echo "Không có dữ liệu";
                 }  
 
                 $conn->close();
             ?>
-            <button class="info-prf" id="logout" onclick="question()">Đăng Xuất</button>
-            <button class="info-prf" id='change_info' onclick="change_info()">Sửa</button>
         </main>
     </body>
 </html>

@@ -12,7 +12,7 @@ if (!isset($_SESSION["user_id"])) {
 <head>
     <title>Vườn</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/forest.css" />
     <?php
         if(isset($_SESSION['error_jour'])){
             $error = $_SESSION['error_jour'];
@@ -29,17 +29,16 @@ if (!isset($_SESSION["user_id"])) {
 </head>
 <body>
     <header>
-        <div id="head-content">
-            <div id="menu">
-                <ul id="menu-ul">
-                    <li><a class="menu-content" id="home" href="../users/home.php">Trang chủ</a></li>
-                    <li><a class="menu-content" id="write" href="../users/viet.php">Viết</a></li>
-                    <li><img id="logo" src="../img/logo.png"></li>
-                    <li><a class="menu-content" id="garden" href="view_journal.php">Vườn</a></li>
-                    <li><a class="menu-content" id="prf" href="../users/view_reply.php"><img id="img-user" src="../img/letter.png"></a></li>
-                    <li><a class="menu-content" id="prf" href="../accounts/profile.php"><img id="img-user" src="../img//user.png"></a></li>
-                </ul>
-            </div>
+        <div id="menu">
+            <ul id="menu-ul">
+                <li><a class="menu-content" id="home" href="../users/home.php">Trang chủ</a></li>
+                <li><a class="menu-content" id="write" href="../users/viet.php">Viết</a></li>
+                <li><a class="menu-content" id="forest" href="emo_forest.php">Rừng</a></li>
+                <li><img id="logo" src="../img/logo.png"></li>
+                <li><a class="menu-content" id="garden" href="view_journal.php">Vườn</a></li>
+                <li><a class="menu-content" id="prf" href="../users/view_reply.php"><img id="img-user" src="../img/letter.png"></a></li>
+                <li><a class="menu-content" id="prf" href="../accounts/profile.php"><img id="img-user" src="../img//user.png"></a></li>
+            </ul>
         </div>
     </header>
     <main id="main-vuon">
@@ -47,6 +46,7 @@ if (!isset($_SESSION["user_id"])) {
             <h3 id="wlc-vuon">Chào mừng bạn đến với</h3>
             <h3 class="h3-viet" id="vuon-cx">KHU RỪNG CẢM XÚC</h3>
         </div>
+        <div id='tree-emo'>
             <?php
             //Kết nối đến cơ sở dữ liệu
             $servername = "localhost";
@@ -83,9 +83,9 @@ if (!isset($_SESSION["user_id"])) {
                         }
                         if ($count_vui>$count_buon)
                         {
-                            echo "<a href='read_journal.php?id=",$id,"'><div class='container-view'><img class='img_emo' src='../img/vui.png'><div class='day-view'>",$name_user,"</div></a>";
+                            echo "<a class='a-forest' href='read_journal.php?id=",$id,"'><div class='container-view'><img class='img_emo' src='../img/vui.png'><div class='name-view'>",$name_user,"</div></div></a>";
                         }elseif($count_buon>$count_vui){
-                            echo "<a href='read_journal.php?id=",$id,"'><div class='container-view'><img class='img_emo' src='../img/buon.png'><div class='day-view'>",$name_user,"</div></a>";
+                            echo "<a class='a-forest' href='read_journal.php?id=",$id,"'><div class='container-view'><img class='img_emo' src='../img/buon.png'><div class='name-view'>",$name_user,"</div></div></a>";
                         }
                     }
                 }
@@ -93,6 +93,7 @@ if (!isset($_SESSION["user_id"])) {
             $conn->close();
 
             ?>
+        </div>
     </main>
 </body>
 </html>
