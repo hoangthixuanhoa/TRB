@@ -54,7 +54,7 @@
                 unset($_SESSION['msg_send_letter']);
             }
         ?>
-        <div>
+        <div style="margin-inline:60px">
             <input type="submit" class="btn_sub" value='Gửi'>
         </div>
     </form>
