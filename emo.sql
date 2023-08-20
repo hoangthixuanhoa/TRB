@@ -45,13 +45,13 @@ CREATE TABLE emails (
 
 -- Bảng letters
 CREATE TABLE letters (
-    id INT(11) AUTO_INCREMENT PRIMARY KEY,
-    sender_id INT(11) NOT NULL,
-    receiver_id INT(11) NOT NULL,
-    title VARCHAR(100) NOT NULL,
-    content TEXT NOT NULL,
-    reply_content TEXT,
-    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    so INT(11) AUTO_INCREMENT PRIMARY KEY,
+    sogui INT(11) NOT NULL,
+    sonhan INT(11) NOT NULL,
+    tieude VARCHAR(100) NOT NULL,
+    noidung TEXT NOT NULL,
+    traloi TEXT,
+    thoigian DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (sender_id) REFERENCES users(id),
     FOREIGN KEY (receiver_id) REFERENCES users(id)
 );
