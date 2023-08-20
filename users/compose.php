@@ -102,7 +102,7 @@
         }
         ?>
         <div class="cainut">
-            <button type="submit">Gửi</button>
+            <input type="submit" value="Gửi" class='btn_sub'>
         </div>
     </form>
 </body>

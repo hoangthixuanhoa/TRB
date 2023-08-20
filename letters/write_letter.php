@@ -50,12 +50,12 @@
             if(isset($_SESSION['msg_send_letter']))
             {
                 $msg= $_SESSION['msg_send_letter'];
-                echo "<p id='error'>$msg</p>";
+                echo "<p class='error'>$msg</p>";
                 unset($_SESSION['msg_send_letter']);
             }
         ?>
         <div>
-            <input type="submit" id="send_button" value='Gửi'>
+            <input type="submit" class="btn_sub" value='Gửi'>
         </div>
     </form>
 </body>

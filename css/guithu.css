@@ -96,7 +96,7 @@ textarea {
     width: 97%;
 }
 
-button {
+.btn_sub {
     font-size: large;
     font-weight: bolder;
     background-color: #FAA5C4;
@@ -107,7 +107,7 @@ button {
     font-family: quicksand;
     font-size: 20px;
 }
-button:hover{
+.btn_sub:hover{
     background-color: white;
     color: #FAA5C4;
 }
