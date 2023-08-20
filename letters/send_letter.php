@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Lấy ra id của tên nhận
             $row = $result->fetch_assoc();
             $recipient_id = $row['id'];
-            $sql_insert_email = "INSERT INTO letters (sender_id, receiver_id, title, content) VALUES (?, ?, ?, ?)";
+            $sql_insert_email = "INSERT INTO letters (sogui, sonhan, tieude, noidung) VALUES (?, ?, ?, ?)";
             $stmt_insert_email = $conn->prepare($sql_insert_email);
             $stmt_insert_email->bind_param("iiss", $_SESSION["user_id"], $recipient_id, $title, $content);
             // Thử gửi mail, nếu không được thì thông báo lại cho người dùng

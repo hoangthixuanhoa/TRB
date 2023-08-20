@@ -22,7 +22,7 @@ if ($conn->connect_error) {
     die("Kết nối thất bại: " . $conn->connect_error);
 }
 
-// Hiển thị danh sách các thư đã gửi và các phản hồi từ chuyên gia
+// Lấy danh sách các thư đã gửi và các phản hồi từ chuyên gia từ bảng emails
 $sql_get_emails = "SELECT e.id, e.title, e.content, e.timestamp, e.reply_content, u.username AS expert_username
                    FROM emails e
                    LEFT JOIN users u ON e.receiver_id = u.id
@@ -32,8 +32,17 @@ $stmt_get_emails = $conn->prepare($sql_get_emails);
 $stmt_get_emails->bind_param("i", $_SESSION["user_id"]);
 $stmt_get_emails->execute();
 $result_get_emails = $stmt_get_emails->get_result();
-?>
 
+$sql_get_received_letters = "SELECT l.so, l.tieude, l.noidung, l.thoigian, u.username AS sender_username
+                            FROM letters l
+                            LEFT JOIN users u ON l.sogui = u.id
+                            WHERE l.sonhan = ?
+                            ORDER BY l.thoigian DESC";
+$stmt_get_letters = $conn->prepare($sql_get_received_letters);
+$stmt_get_letters->bind_param("i", $_SESSION["user_id"]);
+$stmt_get_letters->execute();
+$result_get_letters = $stmt_get_letters->get_result();
+?>
 
 <!-- Code HTML -->
 <!DOCTYPE html>
@@ -81,25 +90,41 @@ $result_get_emails = $stmt_get_emails->get_result();
     <br>
 
     <!-- Ô vuông "Hồi âm" -->
-    <div class = "tatca">
+    <div class="tatca">
         <div class="tieude">
             <span class="hoiam">Hồi âm</span>
         </div>
 
         <br>
-
-        <ul id = "traloi">
+        <ul id="traloi">
             <?php
-                // Hiển thị danh sách các thư đã gửi và phản hồi từ chuyên gia
+                // Hiển thị danh sách các thư từ bảng emails
                 while ($row = $result_get_emails->fetch_assoc()) {
                     $email_id = $row["id"];
                     $reply_content = $row["reply_content"];
                     $expert_username = $row["expert_username"];
                     ?>
                     <li>
-                        <div class = "traloi">
+                        <div class="traloi">
                             <h3 class="title">Thư hồi âm từ chuyên gia <?php echo $expert_username; ?></h3>
                             <div class="content"><?php echo nl2br($reply_content); ?></div>
+                        </div>
+                        <br>
+                    </li>
+                    <?php
+                }
+
+                // Hiển thị danh sách các thư nhận từ bảng letters
+                while ($row = $result_get_letters->fetch_assoc()) {
+                    $letter_id = $row["so"];
+                    $title = $row["tieude"];
+                    $content = $row["noidung"];
+                    $sender_username = $row["sender_username"];
+                    ?>
+                    <li>
+                        <div class="traloi">
+                            <h3 class="title">Thư nhận từ người gửi <?php echo $sender_username; ?></h3>
+                            <div class="content"><?php echo nl2br($content); ?></div>
                         </div>
                         <br>
                     </li>

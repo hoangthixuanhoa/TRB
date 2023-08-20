@@ -22,7 +22,7 @@
                     <li><img id="logo" src="../img/logo.png" height= "60px"></li>
                     <li><a class="menu-content" id="garden" href="../journals/view_journal.php">Vườn</a></li>
                     <li><a class="menu-content" id="prf" href="../users/view_reply.php"><img id="img-user" src="../img/letter.png"></a></li>
-                    <li><a class="menu-content" id="prf" href="../accounts/profile.php"><img id="img-user" src="../img//user.png"></a></li>
+                    <li><a class="menu-content" id="prf" href="../accounts/profile.php"><img id="img-user" src="../img/user.png"></a></li>
                 </ul>
             </div>    
         </div>
