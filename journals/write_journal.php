@@ -63,44 +63,51 @@ if (!isset($_SESSION["user_id"])) {
     </header>
     
     <!-- Trang chính -->
-    <div class = "tatca">
-
-    <!-- Chỉnh tiêu đề -->
-    <div class = "tieude">
-        <h2>Tâm sự hôm nay của bạn là gì?</h2>
-    </div>
-    
-    <div class = "dong2">
-    <!-- Chỉnnh thời gian -->
-    <div class = "ngaygio">
-    <?php
-        date_default_timezone_set('Asia/Ho_Chi_Minh');
-        $date = date('l, m/d/Y', time());
-        $_SESSION['time_cr']=$date;
-        $camxuc = $_POST['item_emo'];
-        echo $date;
-    ?>
-    </div>
-
-    <!-- Chỉnh cảm xúc -->
-    <div id="camxuc">
-        <label>Cảm xúc: </label>
-        <?php 
-        if($camxuc=='1'){
-            echo "Vui";
-        } elseif ($camxuc=='2'){
-            echo "Buồn";
-        } else{
-            echo "Khác";
-        }
-        $_SESSION['camxuc']=$camxuc;
-        ?>
-    </div>
-    </div>
-
     <!-- Form nhập liệu -->
     <form id="reform" method="post" action="save_journal.php">
+        <div class = "tatca">
 
+            <!-- Chỉnh tiêu đề -->
+            <div class = "tieude">
+                <h2>Tâm sự hôm nay của bạn là gì?</h2>
+            </div>
+            
+            <div class = "dong2">
+            <!-- Chỉnnh thời gian -->
+                <div class = "ngaygio">
+                <?php
+                    date_default_timezone_set('Asia/Ho_Chi_Minh');
+                    $date = date('l, m/d/Y', time());
+                    $_SESSION['time_cr']=$date;
+                    $camxuc = $_POST['item_emo'];
+                    echo $date;
+                ?>
+                </div>
+
+                <!-- Chỉnh cảm xúc -->
+                <div id="camxuc">
+                    <label>Cảm xúc: </label>
+                    <?php 
+                    if($camxuc=='1'){
+                        echo "Vui";
+                    } elseif ($camxuc=='2'){
+                        echo "Buồn";
+                    } else{
+                        echo "Khác";
+                    }
+                    $_SESSION['camxuc']=$camxuc;
+                    ?>
+                </div>
+                <div id='chedo-content'>
+                    <label>Quyền xem nhật ký:</label>
+                    <div id='chedo-content'>
+                        <p>Riêng tư <input type='radio' name='chedo' value='private' checked></p>
+                        <p>Công khai <input type='radio' name='chedo' value='public'></p>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
         <!-- Chỉnh phần nhập liệu -->
         <div class = "noidung">
             <textarea id="content_tamsu" placeholder="Hãy viết nhật ký ngày hôm nay của bạn..." name="content_tamsu" required></textarea>

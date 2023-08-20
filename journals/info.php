@@ -25,6 +25,9 @@ if (!isset($_SESSION["user_id"])) {
             function comeback(){
                 window.location.href = "emo_forest.php";
             }
+            function report(userID){
+                window.location.href = "report.php?id="+userID;
+            }
         </script>
     </head>
 
@@ -109,29 +112,51 @@ if (!isset($_SESSION["user_id"])) {
                         $userID = $row['id'];
                         $username=$row['username'];
                         $email = $row['email'];
-                        $public = $row['public'];
-                    }
-                    if($public=='public'){
-                        $chedo="Công khai";
-                    }else{
-                        $chedo="Riêng tư";
+                        $seen = $row['seen'];
+                        $seen++;
+                        $sql = "UPDATE users SET seen='$seen' WHERE id='$userID'";
+                        mysqli_query($conn,$sql);
                     }
                     echo "<div id='ten-prf'><h3 id='div-content-prf'>Tên người dùng: </h3><p id='ten-txt'>", $username, "</p></div>";
                     echo "<br><hr>";
                     echo "<br>";
-                    echo "<p class='info-prf'>Số cây trong vườn:",$count, " </p><br>";
                     echo "<div id='camxuc-prf'><p class='info-prf'>Cảm Xúc gần đây: <ul id='ul-prf'><li id='vui-prf'>", $pre_vui, "%</li><li id='buon-prf'>", $pre_buon, "%</li><li id= 'khac-prf'>", $pre_khac, "%</li></ul></p></div><br>";
                     echo "<p class='info-prf'>Email: ", $email, "</p><br>";
+                    $sql_journal = "SELECT * FROM journals WHERE user_id='$userID' AND public='public';";
+                    $result_journal = $conn->query($sql_journal);
+                    if($result_journal->num_rows>0)
+                    {
+                        while($row_jour=$result_journal->fetch_assoc())
+                            {
+                                //Lấy dữ liệu từ cột trong dòng hiện tại
+                                $id = $row_jour['id'];
+                                $camxuc = $row_jour['emotion'];
+                                $date = $row_jour['date'];
+                                $month = $row_jour['month'];
+                                $year = $row_jour['year'];
+                                $count++;
+                                if($camxuc=='1')
+                                {
+                                    echo "<a class='tree' href='read_info_journal.php?id=",$id,"'><div class='container-view'><img class='img_emo' src='../img/vui.png'><div class='day-view'>",$date,"/",$month,"/",$year,"</div></div></a>";
+                                    $count_vui++;
+                                }
+                                elseif($camxuc=='2'){
+                                    echo "<a class='tree' href='read_info_journal.php?id=",$id,"'><div class='container-view'><img class='img_emo' src='../img/buon.png'><div class='day-view'>",$date,"/",$month,"/",$year,"</div></div></a>";
+                                    $count_buon++;
+                                }
+                                
+                            }
+                    }
                     echo "<br>";
-                    echo "<p class='info-prf'>Chế độ rừng: ", $chedo, "</p><br>";
-                    echo "<br>";
+                    
                 }else{
                     echo "Không có dữ liệu";
                 }  
 
                 $conn->close();
             ?>
-            <button class="info-prf" id='change_info' onclick="comeback()">Quay lại</button>
+            <button class='info-prf' id='change_info' onclick='comeback()'>Quay lại</button>
+            <button class='info-prf' id='change_info' onclick='report(<?php echo $userID;?>)'>Báo cáo</button>
         </main>
     </body>
 </html>

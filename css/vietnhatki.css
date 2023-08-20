@@ -60,16 +60,26 @@ h2{
     font-size: 20px;
     font-family: quicksand;
 } 
-  
+
+#chedo-container{
+    display: flex;
+    gap: 60px;
+}
+#chedo-content{
+    display: flex;
+    gap: 20px;
+}
+.noidung{
+    text-align: center;
+}
 #content_tamsu{
-    margin-left: 20px;
     padding: 15px;
     border: 2px solid black;
     border-radius: 20px;
     width: 92%;
     height: 500px;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 20px;
     font-family: quicksand;
 }
 
@@ -79,12 +89,16 @@ h2{
 
 button {
     background-color: #FAA5C4;
-    border-radius: 10px;
+    border-radius: 20px;
     color: black;
-    padding: 10px;
+    padding: 10px 30px;
     border: 3px solid black;
     cursor: pointer;
     display: block;
     margin-top: 5px;
     float: right;
+    font-family: Dela-Gothic-One;
+}
+button :hover{
+    background-color: white;
 }

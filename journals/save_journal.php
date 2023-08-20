@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $year = $date['year'];
     $_SESSION['camxuc'] = $camxuc;
     $user_id = $_SESSION['user_id'];
+    $chedo = $_POST['chedo'];
     $content = $_POST['content_tamsu'];
     
     $sql_check_time = "SELECT date FROM journals WHERE date='$day' AND month='$month' AND year='$year' AND user_id='$user_id'";
@@ -41,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
     else{
-        $sql_insert_journal = "INSERT INTO journals (user_id, emotion, content, date, month, year) VALUES ('$user_id', '$camxuc', '$content', '$day', '$month', '$year')";
+        $sql_insert_journal = "INSERT INTO journals (user_id, emotion, content, date, month, year, public) VALUES ('$user_id', '$camxuc', '$content', '$day', '$month', '$year', '$chedo')";
         mysqli_query($conn,$sql_insert_journal);
         header("Location: view_journal.php");
         exit();

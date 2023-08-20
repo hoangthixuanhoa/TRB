@@ -24,6 +24,7 @@ CREATE TABLE journals (
     date VARCHAR(2) NOT NULL,
     month VARCHAR(2) NOT NULL,
     year VARCHAR(4) NOT NULL,
+    public VARCHAR(10) NOT NULL DEFAULT 'private',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
