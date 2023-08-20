@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die("Kết nối thất bại: " . $conn->connect_error);
         }
 
-        $sql_get_id = "SELECT id FROM users WHERE username = ?";
+        $sql_get_id = "SELECT * FROM users WHERE username = ?";
         $stmt_get_id = $conn->prepare($sql_get_id);
         $stmt_get_id->bind_param("s", $recipient_name);
         $stmt_get_id->execute();
@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt_insert_email->close();
         } else {
             $msg = "Tên người nhận không tồn tại!";
-            $_SESSION['msg'] = $msg;
+            $_SESSION['msg_send_letter'] = $msg;
             header("Location: write_letter.php ");
             exit();
         }

@@ -73,11 +73,11 @@
                 session_start();
                 if(isset($_SESSION['title_send_mail'])){
                     $title = $_SESSION['title_send_mail'];
-                    echo "<input type='text' value='$title' name='title' id='title' placeholder='Tiêu đề: '>";
+                    echo "<input class='input-in' type='text' value='$title' name='title' id='title' placeholder='Tiêu đề: '>";
                     unset($_SESSION['title_send_mail']);
                 }
                 else{
-                    echo "<input type='text' name='title' id='title' placeholder='Tiêu đề: '>";
+                    echo "<input class='input-in' type='text' name='title' id='title' placeholder='Tiêu đề: '>";
                 }
             ?>
         </div>
@@ -86,11 +86,11 @@
             <?php 
                 if(isset($_SESSION[''])){
                     $content = $_SESSION['content_scontent_send_mailend_mail'];
-                    echo "<textarea name='content' id='content' placeholder='Nội dung lá thư...' value='$content'></textarea>";
+                    echo "<textarea class='input-in' name='content' id='content' placeholder='Nội dung lá thư...' value='$content'></textarea>";
                     unset($_SESSION['content_send_mail']);
                 }
                 else{
-                    echo "<textarea name='content' id='content' placeholder='Nội dung lá thư...'></textarea>";
+                    echo "<textarea class='input-in' name='content' id='content' placeholder='Nội dung lá thư...'></textarea>";
                 }
             ?>
         </div>

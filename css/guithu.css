@@ -78,7 +78,7 @@ html {
 
 /* Chỉnh ô nhập */
 
-input,textarea {
+.input-in {
     width: 92%; /* Bao giờ đủ trình chèn ảnh thì để 1280px */
     padding: 10px;
     border: 3px solid black;
@@ -110,4 +110,7 @@ button {
 button:hover{
     background-color: white;
     color: #FAA5C4;
+}
+#send_button{
+    width: auto;
 }
