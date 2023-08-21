@@ -10,7 +10,9 @@ CREATE TABLE users (
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     role VARCHAR(10) NOT NULL DEFAULT 'user',
-    public VARCHAR(10) NOT NULL DEFAULT 'public'
+    public VARCHAR(10) NOT NULL DEFAULT 'public',
+    seen INT NOT NULL DEFAULT 0,
+    report INT NOT NULL DEFAULT 0
 );
 
 
@@ -53,6 +55,6 @@ CREATE TABLE letters (
     noidung TEXT NOT NULL,
     traloi TEXT,
     thoigian DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (sender_id) REFERENCES users(id),
-    FOREIGN KEY (receiver_id) REFERENCES users(id)
+    FOREIGN KEY (sogui) REFERENCES users(so),
+    FOREIGN KEY (sonhan) REFERENCES users(so)
 );
