@@ -1,0 +1,27 @@
+@font-face {
+    font-family: quicksand;
+    src: url('../font/Quicksand-VariableFont_wght.ttf') format('truetype');
+}
+@font-face{
+    font-family: Dela-Gothic-One;
+    src: url('../font/DelaGothicOne-Regular.ttf') format('truetype');
+}
+@font-face{
+    font-family: chonburi;
+    src: url('../font/Chonburi-Regular.ttf') format('truetype');
+}
+*{
+    margin: 0;
+    padding: 0;
+    background-color: #FFF6F0;
+}
+table, th, td{
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+table{
+    border-radius: 20px;
+}
+th{
+    background-color: #FAA5C4;
+}

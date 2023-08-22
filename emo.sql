@@ -58,3 +58,21 @@ CREATE TABLE letters (
     FOREIGN KEY (sogui) REFERENCES users(id),
     FOREIGN KEY (sonhan) REFERENCES users(id)
 );
+
+-- Bảng "users":
+CREATE TABLE managers (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Bảng "news":
+CREATE TABLE news (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    titile VARCHAR(100) NOT NULL UNIQUE,
+    description VARCHAR(200) NOT NUL,
+    content VARCHAR(10000) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    status TINYINT(3) DEFAULT '0'
+)
