@@ -55,6 +55,6 @@ CREATE TABLE letters (
     noidung TEXT NOT NULL,
     traloi TEXT,
     thoigian DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (sogui) REFERENCES users(so),
-    FOREIGN KEY (sonhan) REFERENCES users(so)
+    FOREIGN KEY (sogui) REFERENCES users(id),
+    FOREIGN KEY (sonhan) REFERENCES users(id)
 );
