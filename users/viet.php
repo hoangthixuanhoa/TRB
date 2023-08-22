@@ -29,8 +29,8 @@ if ($conn->connect_error) {
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/style.css" />
     <script>
-        function send_mail(){
-            window.location.href = "compose.php";
+        function send_letter(){
+            window.location.href = "../letters/write_letter.php";
         }
         function write_journal(){
             window.location.href = "../journals/choice_emo.php";
@@ -68,10 +68,10 @@ if ($conn->connect_error) {
                 <div id="viet-thu" >
                     <div class="block-content" >
                         <h3 class="h3-viet">Viết thư</h3>
-                        <p class='text-viet'>Bạn đang gặp vấn đề về tâm lý nhưng lại ngại nói chuyện trực tiếp với gia đình và bác sĩ. Vậy thì hãy gửi ngay một lá thư đến với chuyên gia tâm lý một cách ẩn danh nhưng bạn vẫn sẽ nhận được lời khuyên có ích.</p>
+                        <p class='text-viet'>Bạn đang gặp vấn đề về tâm lý nhưng lại ngại nói chuyện trực tiếp với gia đình và bác sĩ. Vậy thì hãy gửi ngay một lá thư đến với một người lạ nào đó để chia sẻ tâm tư và có thể nhận lại thư phản hồi.</p>
                     </div>
                     <div class="btn-container">
-                        <button class="btn" onclick="send_mail()">Viết ngay</button>
+                        <button class="btn" onclick="send_letter()">Viết ngay</button>
                     </div>
                 </div>
                 <div id="nhat-ki" >

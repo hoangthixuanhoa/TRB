@@ -27,7 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $recipient_name = $_POST["recipient_name"];
         $title = $_POST["title"];
         $content = $_POST["content"];
-
+        $_SESSION['tt_letter']= $title;
+        $_SESSION['cnt_letter']= $content;
         // Kết nối đến cơ sở dữ liệu
         $conn = new mysqli($servername, $username, $password, $dbname);
 

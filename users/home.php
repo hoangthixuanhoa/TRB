@@ -41,9 +41,6 @@ if ($conn->connect_error) {
         function send_mail(){
             window.location.href = "compose.php";
         }
-        function write_journal(){
-            window.location.href = "../journals/choice_emo.php";
-        }
     </script>
     <style>
         #home{
@@ -85,19 +82,9 @@ if ($conn->connect_error) {
         <div id="qs-home">
             <h3 class="h3-viet" id="ask-home">Hãy viết và để <img id="emo-home1" src="../img/logo.png">nâng niu mọi cảm xúc của bạn</h3>
         </div>
-        <div id="choice-home">
-            <div class="viet-home">
-                <div class="btn-container-home">
-                    <div class="btn-content"><button class="btn-home" onclick="window.location.href = '../letters/write_letter.php'">Viết thư</button></div>
-                    <p class="text-home">Bạn đang muốn viết thư cho một người khác để cùng chia sẻ</p>
-                </div>
-            </div>
-            <div class="viet-home">
-                <div class="btn-container-home">
-                    <div class="btn-content"><button class="btn-home" onclick="write_journal()">Viết tâm sự</button></div>
-                    <p class="text-home">Bạn có nhiều cảm xúc trong lòng và muốn bày tỏ để nhẹ lòng hơn</p>
-                </div>
-            </div>
+        <div class="viet-home">
+                <div class="btn-content"><button class="btn-home" onclick="send_mail()">Viết thư</button></div>
+                <p class="text-home">Bạn đang gặp vấn đề về tâm lý nhưng lại ngại nói chuyện trực tiếp với gia đình và người lạ. Vậy thì hãy gửi ngay một lá thư đến với chuyên gia tâm lý một cách ẩn danh nhưng bạn vẫn sẽ nhận được lời khuyên có ích.</p>
         </div>
     </main>
 </body>

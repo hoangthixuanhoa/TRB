@@ -27,7 +27,6 @@ body{
 
 /* CSS cho ô vuông "Hồi âm" */
 .tieude {
-    margin-top: 200px;
     margin: 0 auto;
     width: 200px;
     height: 60px;
@@ -39,6 +38,8 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: quicksand;
+    font-size: 20px;
 }
 
 /* Danh sách các bức thư */
@@ -75,7 +76,6 @@ header{
 }
 
 #menu-ul{
-    margin-inline: 100px;
     height: 60px;
     list-style: none;
     display: flex;
