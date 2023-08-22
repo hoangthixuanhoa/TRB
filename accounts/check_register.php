@@ -14,6 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
     $conpwd = $_POST["confirmPassword"];
+    $_SESSION['username_rig'] = $username;
+    $_SESSION['email_rig'] = $email;
+    $_SESSION['password_rig'] = $password;
+    $_SESSION['conpwd_rig'] = $conpwd;
+
 
     // Kiểm tra xem tên đăng nhập đã tồn tại chưa
     $sql_check_username = "SELECT id FROM users WHERE username=?";
@@ -55,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Chuyển hướng người dùng đến trang chủ với tài khoản đã đăng ký
             $_SESSION["user_id"] = $stmt_insert->insert_id; // Lấy ID của tài khoản vừa đăng ký
             $_SESSION["username"] = $username; // $username là tên đăng nhập vừa đăng ký
+            $_SESSION["role"] = 'user';
             header("Location: ../users/home.php");
             exit();
         } else {

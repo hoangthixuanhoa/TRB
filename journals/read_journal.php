@@ -79,21 +79,28 @@ if ($conn->connect_error) {
                             $id = $row['id'];
                             $camxuc = $row['emotion'];
                             $content = $row['content'];
+                            $chedo = $row['public'];
                             $date = $row['date'];
                             $month = $row['month'];
                             $year = $row['year'];
                         }
-                    echo "<div class='info-read'><p class='info-read-p'>Ngày viết: ",$date,"/",$month,"/",$year,"</p></div>";
+                    echo "<div><p class='info-read-p'>Ngày viết: ",$date,"/",$month,"/",$year,"</p></div>";
                     if($camxuc=='1'){
-                        echo "<div class='info-read' id='camxuc-read'><p class='info-read-p'>Cảm xúc: </p><p class='info-read-p' id='vui-prf'>Vui</p></div>";
+                        echo "<div id='camxuc-read'><p class='info-read-p'>Cảm xúc: </p><p class='info-read-p' id='vui-prf'>Vui</p></div>";
                     }
                     elseif($camxuc=='2'){
-                        echo "<div class='info-read' id='camxuc-read'><p class='info-read-p'>Cảm xúc: </p><p class='info-read-p' id='buon-prf''>Buồn</p></div>";
+                        echo "<div id='camxuc-read'><p class='info-read-p'>Cảm xúc: </p><p class='info-read-p' id='buon-prf''>Buồn</p></div>";
                     }
                     else{
-                        echo "<div class='info-read' id='camxuc-read'><p class='info-read-p'>Cảm xúc: </p><p class='info-read-p' id='khac-prf'>Khác</p></div>";
+                        echo "<div id='camxuc-read'><p class='info-read-p'>Cảm xúc: </p><p class='info-read-p' id='khac-prf'>Khác</p></div>";
                     }
-                    echo "<div class='info-read'><p class='info-read-p'>Nội dung: ",$content, "</p></div>";
+                    if ($chedo=='private'){
+                        echo "<div><p class='info-read-p'>Chế độ: Riêng tư</p></div>";
+                    }else{
+                        echo "<div><p class='info-read-p'>Chế độ: Công khai</p></div>";
+                    }
+                    
+                    echo "<div><p class='info-read-p'>Nội dung: ",$content, "</p></div>";
                 }else{
                     echo "Không có dữ liệu";
                 }
