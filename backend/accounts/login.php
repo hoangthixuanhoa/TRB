@@ -41,7 +41,7 @@
                             $error = "";
                             if(isset($_SESSION['error_login_ma'])){
                                 $error = $_SESSION['error_login_ma'];
-                                echo "<p id='error'>",$error,"</p>";
+                                echo "<p class='error'>",$error,"</p>";
                                 unset($_SESSION['error_login_ma']);
                             }
                             else{

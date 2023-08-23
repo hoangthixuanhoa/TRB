@@ -16,7 +16,7 @@
     background-color: #FFF6F0;
 }
 main{
-    margin: 60px 200px;
+    margin: 60px 600px;
 }
 #pattern{
     background-image: url("../img/Pattern.png");
@@ -105,7 +105,7 @@ label{
 #error-container{
     margin-block: 5px;
 }
-#error{
+.error{
     color: red;
     font-family: quicksand;
     font-size: 18px;

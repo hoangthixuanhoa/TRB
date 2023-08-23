@@ -51,7 +51,7 @@
                             $error = "";
                             if(isset($_SESSION['error_rig_ma'])){
                                 $error = $_SESSION['error_rig_ma'];
-                                echo "<p id='error'>",$error,"</p>";
+                                echo "<p class='error'>",$error,"</p>";
                                 unset($_SESSION['error_rig_ma']);
                             }
                             else{
