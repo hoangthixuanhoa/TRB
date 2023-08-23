@@ -10,28 +10,6 @@
     font-family: chonburi;
     src: url('../font/Chonburi-Regular.ttf') format('truetype');
 }
-*{
-    margin: 0;
-    padding: 0;
-}
-#body{
-    display: flex;
-    gap: 20%;
-}
 header{
-    width: 20%;
-}
-table, th, td{
-    border: 2px solid black;
-    border-collapse: collapse;
-}
-table{
-    border-radius: 20px;
-}
-th{
-    background-color: #FAA5C4;
-}
-a{
-    text-decoration: none;
-    font-family: quicksand;
+    background-color: lightgrey;
 }

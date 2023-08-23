@@ -38,44 +38,42 @@ if ($conn->connect_error) {
     </script>
 </head>
 <body>
-    <header>
-        <div id="head-content">
-            <div id="logo">
-                <img>
-            </div>
-            <div id="menu">
-                <ul id="menu-ul">
-                    <li><a class="menu-content" id="home" href="home.php">Trang chủ</a></li>
-                    <li><a class="menu-content" id="quanly">Quản lý</a>
-                        <ul>
-                            <li><a href="../quanly/quanly_users.php">Người dùng</a></li>
-                            <li><a href="../quanly/quanly_expert.php">Chuyên gia</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="menu-content" id="pro" href="../accounts/profile.php">Pro5</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
-    <main id="home-container">
-        <h3>Thêm bài viết</h3>
-            <form method="post" action='insert_news.php'>
-                <label for="title">Tiêu đề: </label>
-                <input name="title" type="text" required><br>
+    <div id="logo">
+        <img>
+    </div>
+    <div id='body'>
+        <header>
+            <ul id="menu-ul">
+                <li><a class="menu-content" id="home" href="home.php">Trang chủ</a></li>
+                <li>Quản lý
+                    <ul>
+                        <li><a href="../quanly/quanly_users.php">Người dùng</a></li>
+                        <li><a href="../quanly/quanly_expert.php">Chuyên gia</a></li>
+                    </ul>
+                </li>
+                <li><a class="menu-content" id="pro" href="../accounts/profile.php">Pro5</a></li>
+            </ul>
+        </header>
+        <main id="home-container">
+            <h3>Thêm bài viết</h3>
+                <form method="post" action='insert_news.php'>
+                    <label for="title">Tiêu đề: </label>
+                    <input name="title" type="text" required><br>
 
-                <label for="description">Mô tả ngắn: </label>
-                <input name="description" type="text" required><br>
+                    <label for="description">Mô tả ngắn: </label>
+                    <input name="description" type="text" required><br>
 
-                <label for="content">Nội dung: </label>
-                <input name="content" type="text" required><br>
+                    <label for="content">Nội dung: </label>
+                    <input name="content" type="text" required><br>
 
-                <p>Trạng thái</p>
-                <select name='status'>
-                    <option value="0">Disable</option>
-                    <option value="1">Action</option>
-                </select>
-                <input type="submit" value="Thêm">
-            </form>
-    </main>
+                    <p>Trạng thái</p>
+                    <select name='status'>
+                        <option value="0">Disable</option>
+                        <option value="1">Action</option>
+                    </select>
+                    <input type="submit" value="Thêm">
+                </form>
+        </main>
+    </div>
 </body>
 </html>

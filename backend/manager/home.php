@@ -30,9 +30,7 @@ if ($conn->connect_error) {
     <title>Trang chủ</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-    <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet"> <!--load all styles -->
     <script>
         function changeWeb(){
             window.location.href ='add_news.php';
@@ -40,74 +38,72 @@ if ($conn->connect_error) {
     </script>
 </head>
 <body>
-    <header>
-        <div id="head-content">
-            <div id="logo">
-                <img>
-            </div>
-            <div id="menu">
-                <ul id="menu-ul">
-                    <li><a class="menu-content" id="home" href="home.php">Trang chủ</a></li>
-                    <li><a class="menu-content" id="quanly">Quản lý</a>
-                        <ul>   
-                            <li><a href="../quanly/quanly_users.php">Người dùng</a></li>
-                            <li><a href="../quanly/quanly_expert.php">Chuyên gia</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="menu-content" id="pro" href="../accounts/profile.php">Pro5</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
-    <main id="home-container">
-        <h3>Bài viết</h3>
-        <button onclick="changeWeb()">Thêm mới</button>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Tên</th>
-                <th>Nội dung</th>
-                <th>Ngày đăng</th>
-                <th>trạng thái</th>
-                <th></th>
-            </tr>
-            <?php
-            $servername = "localhost";
-            $username = "emo";
-            $password = "123456EmoR2";
-            $dbname = "emo";
-            
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            $sql = "SELECT * FROM news";
-            $result = $conn->query($sql);
-            if($result->num_rows>0)
-            {
-                while($row=$result->fetch_assoc())
+    <div id="logo">
+        <img>
+    </div>
+    <div id='body'>
+        <header>
+            <ul id="menu-ul">
+                <li><a class="menu-content" id="home" href="home.php">Trang chủ</a></li>
+                <li>Quản lý
+                    <ul>   
+                        <li><a href="../quanly/quanly_users.php">Người dùng</a></li>
+                        <li><a href="../quanly/quanly_expert.php">Chuyên gia</a></li>
+                    </ul>
+                </li>
+                <li><a class="menu-content" id="pro" href="../accounts/profile.php">Pro5</a></li>
+            </ul>
+        </header>
+        <main id="home-container">
+            <h3>Bài viết</h3>
+            <button onclick="changeWeb()">Thêm mới</button>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Tên</th>
+                    <th>Nội dung</th>
+                    <th>Ngày đăng</th>
+                    <th>trạng thái</th>
+                    <th></th>
+                </tr>
+                <?php
+                $servername = "localhost";
+                $username = "emo";
+                $password = "123456EmoR2";
+                $dbname = "emo";
+                
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                $sql = "SELECT * FROM news";
+                $result = $conn->query($sql);
+                if($result->num_rows>0)
                 {
-                    $id=$row['id'];
-                    $title = $row['title'];
-                    $description = $row['description'];
-                    $content = $row['content'];
-                    $created_at=$row['created_at'];
-                    $status = $row['status'];
-                    if ($status=='0'){
-                        $status='Disable';
-                    }elseif($status=='1'){
-                        $status='Action';
+                    while($row=$result->fetch_assoc())
+                    {
+                        $id=$row['id'];
+                        $title = $row['title'];
+                        $description = $row['description'];
+                        $content = $row['content'];
+                        $created_at=$row['created_at'];
+                        $status = $row['status'];
+                        if ($status=='0'){
+                            $status='Disable';
+                        }elseif($status=='1'){
+                            $status='Action';
+                        }
+                        echo "<tr>";
+                        echo "<td>",$id,"</td>";
+                        echo "<td>",$title,"</td>";
+                        echo "<td>",$description,"</td>";
+                        echo "<td>",$content,"</td>";
+                        echo "<td>",$status,"</td>";
+                        echo "<td><a href='detail.php?id=$id'>Xem</a>";
+                        echo "</tr>";
                     }
-                    echo "<tr>";
-                    echo "<td>",$id,"</td>";
-                    echo "<td>",$title,"</td>";
-                    echo "<td>",$description,"</td>";
-                    echo "<td>",$content,"</td>";
-                    echo "<td>",$status,"</td>";
-                    echo "<td><a href='detail.php?id=$id'>Xem</a>";
-                    echo "</tr>";
                 }
-            }
 
-            ?>
-        </table>
-    </main>
+                ?>
+            </table>
+        </main>
+    </div>
 </body>
 </html>

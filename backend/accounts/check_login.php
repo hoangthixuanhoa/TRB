@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $hashed_password)) {
 
             // Lưu thông tin đăng nhập vào phiên làm việc
-            $_SESSION["user_id"] = $user_id;
+            $_SESSION["ma_id"] = $user_id;
             $_SESSION["username"] = $username;
             header("Location: ../manager/home.php");
 

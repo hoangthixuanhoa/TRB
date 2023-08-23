@@ -21,64 +21,62 @@
     </head>
 
     <body>
+        <div id="logo">
+            <img>
+        </div>
+        <div id='body'>
+            <header>
+                <ul id="menu-ul">
+                    <li><a class="menu-content" id="home" href="../manager/home.php">Trang chủ</a></li>
+                    <li>Quản lý
+                        <ul>
+                            <li><a href="../quanly/quanly_users.php">Người dùng</a></li>
+                            <li><a href="../quanly/quanly_expert.php">Chuyên gia</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="menu-content" id="pro" href="profile.php">Pro5</a></li>
+                </ul>
+            </header>
 
-        <header>
-            <div id="head-content">
-                <div id="logo">
-                    <img>
-                </div>
-                <div id="menu">
-                    <ul id="menu-ul">
-                        <li><a class="menu-content" id="home" href="../manager/home.php">Trang chủ</a></li>
-                        <li><a class="menu-content" id="quanly" href="../quanly/quanly.php">Quản lý</a>
-                            <ul>
-                                <li><a href="../quanly/quanly_users.php">Người dùng</a></li>
-                                <li><a href="../quanly/quanly_expert.php">Chuyên gia</a></li>
-                            </ul>
-                       </li>
-                        <li><a class="menu-content" id="pro" href="profile.php">Pro5</a></li>
-                    </ul>
-                </div>
-            </div>
-        </header>
-
-        <br><br>
-        <main id="main-prf">
-            
-            <?php
-                session_start();
-                $servername = "localhost";
-                $username = "emo";
-                $password = "123456EmoR2";
-                $dbname = "emo";
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                // Truy vấn thông tin gười dùng
-                $ma_id = $_SESSION["ma_id"];
-                $sql_user = "SELECT * FROM managers WHERE id='$ma_id';";
-                $result_user = $conn->query($sql_user);
-                if($result_user->num_rows>0)
-                {
-                    // Lặp qua từng dòng dữ liệu
-                    while($row=$result_user->fetch_assoc())
+            <br><br>
+            <main id="main-prf">
+                
+                <?php
+                    session_start();
+                    $servername = "localhost";
+                    $username = "emo";
+                    $password = "123456EmoR2";
+                    $dbname = "emo";
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+                    // Truy vấn thông tin gười dùng
+                    $ma_id = $_SESSION["ma_id"];
+                    $sql_user = "SELECT * FROM managers WHERE id='$ma_id';";
+                    $result_user = $conn->query($sql_user);
+                    if($result_user->num_rows>0)
                     {
-                        //Lấy dữ liệu từ cột trong dòng hiện tại
-                        $ma_id = $row['id'];
-                        $username=$row['username'];
-                        $email = $row['email'];
+                        // Lặp qua từng dòng dữ liệu
+                        while($row=$result_user->fetch_assoc())
+                        {
+                            //Lấy dữ liệu từ cột trong dòng hiện tại
+                            $ma_id = $row['id'];
+                            $username=$row['username'];
+                            $email = $row['email'];
 
-                    }
-                    echo "<div id='ten-prf'><h3 id='div-content-prf'>Tên người dùng: </h3><p id='ten-txt'>", $username, "</p></div>";
-                    echo "<hr>";
-                    echo "<br>";
-                    echo "<p class='info-prf'>Email: ", $email, "</p><br>";
-                    echo "<br>";
-                }else{
-                    echo "Không có dữ liệu";
-                }  
+                        }
+                        echo "<div id='ten-prf'><h3 id='div-content-prf'>Tên người dùng: </h3><p id='ten-txt'>", $username, "</p></div>";
+                        echo "<hr>";
+                        echo "<br>";
+                        echo "<p class='info-prf'>Email: ", $email, "</p><br>";
+                        echo "<br>";
+                    }else{
+                        echo "Không có dữ liệu";
+                    }  
 
-                $conn->close();
-            ?>
-            <button class="info-prf" id="logout" onclick="question()">Đăng Xuất</button>
-        </main>
+                    $conn->close();
+                ?>
+                <button class="info-prf" id="logout" onclick="question()">Đăng Xuất</button>
+            </main>
+        </div>
+
     </body>
 </html>
