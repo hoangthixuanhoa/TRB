@@ -1,6 +1,6 @@
 # Emo
 
-![Logo](/img/logo.png)
+![Logo](logo.png)
 
 * Với việc nhiều người ngại gặp bác sĩ và các chuyên gia tâm lý, "Emo" là một trang web sẽ hỗ trợ mọi người tiếp cận với những chuyên gia hay bác sĩ tâm lý dưới thân phận ẩn danh. Ngoài ra, trang web cũng hỗ trợ cho họ xem tình trạng tâm lý cũng mình theo thời gian thông qua việc viết nhật ký hàng ngày.
 

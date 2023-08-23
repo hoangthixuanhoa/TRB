@@ -45,12 +45,7 @@ if ($conn->connect_error) {
         <header>
             <ul id="menu-ul">
                 <li><a class="menu-content" id="home" href="home.php">Trang chủ</a></li>
-                <li>Quản lý
-                    <ul>   
-                        <li><a href="../quanly/quanly_users.php">Người dùng</a></li>
-                        <li><a href="../quanly/quanly_expert.php">Chuyên gia</a></li>
-                    </ul>
-                </li>
+                <li><a href="../quanly/quanly_users.php">Người dùng</a></li>
                 <li><a class="menu-content" id="pro" href="../accounts/profile.php">Pro5</a></li>
             </ul>
         </header>
@@ -60,6 +55,7 @@ if ($conn->connect_error) {
             <table>
                 <tr>
                     <th>ID</th>
+                    <th>Ảnh</th>
                     <th>Tên</th>
                     <th>Nội dung</th>
                     <th>Ngày đăng</th>
@@ -80,6 +76,7 @@ if ($conn->connect_error) {
                     while($row=$result->fetch_assoc())
                     {
                         $id=$row['id'];
+                        $avatar = $row['avatars'];
                         $title = $row['title'];
                         $description = $row['description'];
                         $content = $row['content'];
@@ -92,6 +89,7 @@ if ($conn->connect_error) {
                         }
                         echo "<tr>";
                         echo "<td>",$id,"</td>";
+                        echo "<td>",$avatar,"</td>";
                         echo "<td>",$title,"</td>";
                         echo "<td>",$description,"</td>";
                         echo "<td>",$content,"</td>";

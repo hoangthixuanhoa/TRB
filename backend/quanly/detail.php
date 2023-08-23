@@ -6,10 +6,10 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script>
         function change(id){
-            window.location.href = "change_news.php?id="+id;
+            window.location.href = "change_user.php?id="+id;
         }
         function deleteIF(id){
-            if(confirm("Bạn có chắc muốn xóa bài viết?")){
+            if(confirm("Bạn có chắc muốn xóa tài khoản này?")){
                 window.location.href = "delete.php?id="+id;
             }
         }
@@ -22,14 +22,9 @@
     </div>
     <div id='body'>
         <header>
-            <ul id="menu-ul">
+        <ul id="menu-ul">
                 <li><a class="menu-content" id="home" href="../manager/home.php">Trang chủ</a></li>
-                <li><a class="menu-content" id="quanly" href="quanly.php">Quản lý</a>
-                    <ul>
-                        <li><a href="quanly_users.php">Người dùng</a></li>
-                        <li><a href="quanly_expert.php">Chuyên gia</a></li>
-                    </ul>
-                </li>
+                <li><a href="quanly_users.php">Người dùng</a></li>
                 <li><a class="menu-content" id="pro" href="../accounts/profile.php">Pro5</a></li>
             </ul>
         </header>
@@ -57,9 +52,20 @@
                     $id = $row['id'];
                     $username = $row['username'];
                     $email = $row['email'];
+                    $role = $row['role'];
+                    $seen = $row['seen'];
+                    $report = $row['report'];
+                    if($role=='user'){
+                        $role="Người dùng thường";
+                    }else{
+                        $role="Chuyên gia";
+                    }
                     echo "ID: ",$id,"<br>";
                     echo "Tên đăng nhập: ",$username,"<br>";
-                    echo "Email",$email,"<br>";
+                    echo "Email: ",$email,"<br>";
+                    echo "Vai trò: ",$role,"<br>";
+                    echo "Số người xem: ", $seen, "<br>";
+                    echo "Báo cáo: ",$report,"<br>";
                     echo "<button class='btn' onclick='change($id)'>Sửa</button>";
                     echo "<button class='btn' onclick='deleteIF($id)'>Xóa</button>";
                 }

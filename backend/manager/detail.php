@@ -23,13 +23,8 @@
     <div id='body'>
         <header>
             <ul id="menu-ul">
-                <li><a class="menu-content" id="home" href="../manager/home.php">Trang chủ</a></li>
-                <li>Quản lý
-                    <ul>
-                        <li><a href="quanly_users.php">Người dùng</a></li>
-                        <li><a href="quanly_expert.php">Chuyên gia</a></li>
-                    </ul>
-                </li>
+                <li><a class="menu-content" id="home" href="home.php">Trang chủ</a></li>
+                <li><a href="../quanly/quanly_users.php">Người dùng</a></li>
                 <li><a class="menu-content" id="pro" href="../accounts/profile.php">Pro5</a></li>
             </ul>
         </header>
