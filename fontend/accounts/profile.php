@@ -130,7 +130,6 @@ if (!isset($_SESSION["user_id"])) {
                     echo "<p class='info-prf'>Số cây trong vườn:",$count, " </p><br>";
                     echo "<div id='camxuc-prf'><p class='info-prf'>Cảm Xúc gần đây: <ul id='ul-prf'><li id='vui-prf'>", $pre_vui, "%</li><li id='buon-prf'>", $pre_buon, "%</li><li id= 'khac-prf'>", $pre_khac, "%</li></ul></p></div><br>";
                     echo "<p class='info-prf'>Email: ", $email, "</p><br>";
-                    echo "<br>";
                     echo "<p class='info-prf'>Chế độ rừng: ", $chedo, "</p><br>";
                     echo "<br>";
                 }else{

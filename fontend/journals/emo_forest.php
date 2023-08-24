@@ -21,8 +21,8 @@ if (!isset($_SESSION["user_id"])) {
         }
     ?>
     <style>
-        #garden{
-            text-shadow: 2px 2px 5px palevioletred;
+        #forest{
+            border-bottom: 1px solid black;
         }
         
     </style>

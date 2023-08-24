@@ -56,12 +56,15 @@ if ($conn->connect_error) {
                     $result = mysqli_query($conn,$sql);
                     if($result->num_rows>0){
                         while($row=$result->fetch_assoc()){
+                            $avatar = $row['avatars'];
                             $title = $row['title'];
                             $description = $row['description'];
                             $content = $row['content'];
                             $status = $row['status'];
                         }
                         echo "<form method='post' action='update.php?id=$id'>";
+                        echo "<lable for='img'>Ảnh</lable>";
+                        echo "<input type='file' name='avatar' value='../../uploads/",$avatar,"' required><br>";
                         echo "<label for='title'>Tiêu đề: </label>";
                         echo "<input name='title' type='text' value='", $title,"' required><br>";
                         echo "<label for='description'>Mô tả ngắn: </label>";

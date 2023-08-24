@@ -48,7 +48,7 @@
 }
 #thumb-person{
     display: flex;
-    gap: 160px;
+    gap: 200px;
     align-items: center;
 }
 #bg_cr{
@@ -119,9 +119,10 @@
 .btn-home:hover{
     background-color: white;
 }
-.viet-home{
-    display: inline-block;
-    margin-block: 30px;
+.home-choice{
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-evenly;
 }
 .text-home{
     font-size: 20px;
@@ -131,8 +132,32 @@
     text-align: center;
     margin-top: 10px;
 }
-.btn-content{
+.home-choice-content{
+    width: 20%;
+    background-color: pink;
+    font-size: 20px;
     text-align: center;
+    padding: 10px 15px;
+    border: 1px solid;
+    border-radius: 33px;
+}
+.home-choice-content p{
+    background-color: pink;
+    font-family: quicksand;
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 10px;
+}
+.home-choice-content h3{
+    background-color: pink;
+    font-family: Dela-Gothic-One;
+    font-size: 25px;
+    border-bottom: 2px solid;
+    padding-bottom: 5px;
+}
+.home-choice-content a{
+    text-decoration: none;
+    color: black;
 }
 
 
@@ -142,18 +167,16 @@
 
 #viet{
     display: flex;
-    justify-content: space-between;
     margin-top: 60px;
-    margin-right: 20%;
     align-items: center;
 }
 #viet-content{
-    width: 800px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .h3-viet{
-    padding: 6px;
+    padding: 6px 20px;
     font-size: 25px;
     text-align: center;
     font-family: Dela-Gothic-One;
@@ -167,7 +190,8 @@
 }
 #content-choice{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 30px
 }
 .block-content{
     padding: 10px;

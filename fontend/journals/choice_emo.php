@@ -35,7 +35,7 @@ if ($conn->connect_error) {
     </script>
     <style>
         #write{
-            text-shadow: 2px 2px 5px palevioletred;
+            border-bottom: 1px solid black;
         }
     </style>
 </head>

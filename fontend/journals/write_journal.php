@@ -26,7 +26,7 @@ if (!isset($_SESSION["user_id"])) {
     <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
     <style>
         #garden{
-            text-shadow: 2px 2px 5px palevioletred;
+            border-bottom: 1px solid black;
         }
         
     </style>

@@ -41,13 +41,24 @@ if (isset($_POST['submit'])) {
             header('Location: add_news.php');
         }
     }
-    $avatars_name=$avatars['name'];
-
     if (empty($error)) {
-        $sql = "INSERT INTO news (avatars,title, description, content, status) VALUES ('$avatars_name','$title', '$description', '$content', '$status')";
-        mysqli_query($conn,$sql);
-        header("Location: home.php");
-        exit();
+        $filename = '';
+        if ($avatars['error'] == 0) {
+            $dir_upload = 'uploads';
+            if (!file_exists($dir_upload)) {
+                mkdir('../../'.$dir_upload);
+            }
+            $filename = time() . '-' . $avatars['name'];
+            $is_upload = move_uploaded_file($avatars['tmp_name'],"../../$dir_upload/$filename");
+            if ($is_upload) {
+                // $result .= "<img src='$dir_upload/$filename' width='100px'>";
+                $sql = "INSERT INTO news (avatars,title, description, content, status) VALUES ('$filename','$title', '$description', '$content', '$status')";
+                mysqli_query($conn,$sql);
+                header("Location: home.php");
+                exit();
+            }
+        }
+        
     }
 }
 $conn->close();

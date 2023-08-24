@@ -35,10 +35,13 @@ if ($conn->connect_error) {
         function write_journal(){
             window.location.href = "../journals/choice_emo.php";
         }
+        function send_mail(){
+            window.location.href = "compose.php";
+        }
     </script>
     <style>
         #write{
-            text-shadow: 2px 2px 5px palevioletred;
+            border-bottom: 1px solid black;
         }
     </style>
 </head>
@@ -72,6 +75,15 @@ if ($conn->connect_error) {
                     </div>
                     <div class="btn-container">
                         <button class="btn" onclick="send_letter()">Viết ngay</button>
+                    </div>
+                </div>
+                <div id="viet-thu" >
+                    <div class="block-content" >
+                        <h3 class="h3-viet">Viết thư</h3>
+                        <p class='text-viet'>Bạn đang gặp vấn đề về tâm lý nhưng lại ngại nói chuyện trực tiếp với gia đình và bác sĩ. Vậy thì hãy gửi ngay một lá thư đến với chuyên gia tâm lý một cách ẩn danh nhưng bạn vẫn sẽ nhận được lời khuyên có ích.</p>
+                    </div>
+                    <div class="btn-container">
+                        <button class="btn" onclick="send_mail()">Viết ngay</button>
                     </div>
                 </div>
                 <div id="nhat-ki" >

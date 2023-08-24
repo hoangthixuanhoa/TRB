@@ -30,7 +30,7 @@
         </header>
         <main id="home-container">
             <h3 class="h3-content">Xem bài viết</h3>
-            <div id=''>
+            <div id='content-detail'>
                 <?php
                 $userID = $_GET['id'];
                 session_start();
@@ -52,16 +52,26 @@
                 if($result->num_rows>0){
                     while($row=$result->fetch_assoc()){
                         //Lấy dữ liệu từ cột trong dòng hiện tại
-                        $id = $row['id'];
-                        $title = $row['title'];
-                        $content = $row['content'];
-                        $description = $row['description'];
+                        $id=$row['id'];
+                            $avatar = $row['avatars'];
+                            $title = $row['title'];
+                            $description = $row['description'];
+                            $content = $row['content'];
+                            $created_at=$row['created_at'];
+                            $status = $row['status'];
+                            if ($status=='0'){
+                                $status='Disable';
+                            }elseif($status=='1'){
+                                $status='Action';
+                            }
                     }
+                    echo "Ảnh: <img src='../../uploads/",$avatar,"' width='200px'></br>";
                     echo "Tiêu đề: ",$title,"<br>";
                     echo "Mô tả: ",$description,"<br>";
                     echo "Nội dung: ",$content,"<br>";
-                    echo "<button class='btn' onclick='change($id)'>Sửa</button>";
-                    echo "<button class='btn' onclick='deleteIF($id)'>Xóa</button>";
+                    echo "Trạng thái: ",$status,"<br>";
+                    echo "<button class='btn-clk' onclick='change($id)'>Sửa</button>";
+                    echo "<button class='btn-clk' onclick='deleteIF($id)'>Xóa</button>";
                 }
                 ?>
             </div>

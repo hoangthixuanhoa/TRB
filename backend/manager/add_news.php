@@ -52,11 +52,12 @@ if ($conn->connect_error) {
         <main id="home-container">
             <h3 class="h3-content">Thêm bài viết</h3>
                 <?php
-                if(isset($_SESSION['$title_news']) and isset($_SESSION['description_news']) and isset($_SESSION['content_news']) and (isset($_SESSION['status_news']))){
+                if(isset($_SESSION['$title_news']) and isset($_SESSION['description_news']) and isset($_SESSION['content_news']) and (isset($_SESSION['status_news'])) and isset($_SESSION['error_add_news'])){
                     $title = $_SESSION['$title_news'];
                     $description = $_SESSION['description_news'];
                     $content = $_SESSION['content_news'];
                     $status = $_SESSION['status_news'];
+                    $error = $_SESSION['error_add_news'];
                 }
                 ?>
                 <form method="post" action='insert_news.php' enctype=multipart/form-data>
@@ -89,8 +90,7 @@ if ($conn->connect_error) {
                     </select>
                     <p class='error' name='error'>
                     <?php
-                    if(isset($_SESSION['error_add_news'])){
-                        $error = $_SESSION['error_add_news'];
+                    if(isset($error)){
                         echo $error;
                         unset($_SESSION['error_add_news']);
                     }

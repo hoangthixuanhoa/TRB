@@ -38,8 +38,9 @@ if ($conn->connect_error) {
     </script>
 </head>
 <body>
-    <div id="logo">
-        <img>
+    <div id="pattern">
+        <div class="flex-left">Logo</div>
+        <div class="flex-right">a</div>
     </div>
     <div id='body'>
         <header>
@@ -90,7 +91,7 @@ if ($conn->connect_error) {
                             }
                             echo "<tr>";
                             echo "<td>",$id,"</td>";
-                            echo "<td>",$avatar,"</td>";
+                            echo "<td><img src='../../uploads/",$avatar,"' width='50px'></td>";
                             echo "<td>",$title,"</td>";
                             echo "<td>",$description,"</td>";
                             echo "<td>",$content,"</td>";

@@ -44,7 +44,7 @@ if ($conn->connect_error) {
     </script>
     <style>
         #home{
-            text-shadow: 2px 2px 5px palevioletred;
+            border-bottom: 1px solid black;
         }
         
     </style>
@@ -78,25 +78,18 @@ if ($conn->connect_error) {
     </header>
     <main id="home-container">
         <div id="qs-home">
-            <h3 class="h3-viet" id="ask-home">Hãy viết và để <img id="emo-home1" src="../img/logo.png">nâng niu mọi cảm xúc của bạn</h3>
+            <h3 class="h3-viet" id="ask-home">Một chút năng lượng tích cực</h3>
         </div>
-        <div id='news-container'>
-            <?php
-            $sql = "SELECT * FROM news WHERE status='1'";
-            $result = $conn->query($sql);
-            if($result->num_rows>0){
-                while($row=$result->fetch_assoc()){
-                    $id=$row['id'];
-                    $title = $row['title'];
-                    $description = $row['description'];
-                    echo "<a class='news-a-content' href='seen_news.php?id=$id'><div><h3>",$title,"</h3><p>",$description,"</p></div></a>";
-                }
-            }
-            ?>
-        </div>
-        <div class="viet-home">
-                <div class="btn-content"><button class="btn-home" onclick="send_mail()">Viết thư</button></div>
-                <p class="text-home">Bạn đang gặp vấn đề về tâm lý nhưng lại ngại nói chuyện trực tiếp với gia đình và người lạ. Vậy thì hãy gửi ngay một lá thư đến với chuyên gia tâm lý một cách ẩn danh nhưng bạn vẫn sẽ nhận được lời khuyên có ích.</p>
+        
+        <div class="home-choice">
+            <div class="home-choice-content"><a href='libary.php'>
+                <h3>Bài viết hay</h3>
+                <p>Những mẫu văn giúp tiếp thêm nguồn động lực và nguồn cảm hứng cho bạn</p></a>
+            </div>
+            <div class="home-choice-content">
+                <h3>Podcast</h3>
+                <p>Lắng nghe những âm thanh du dương giúp chữa lành tâm hồn</p>
+            </div>
         </div>
     </main>
 </body>
