@@ -28,16 +28,22 @@
                 <div id="wlc-login">
                     <h1 id="wlc-txt">Đăng nhập</h1>
                 </div>
+                <?php
+                session_start();
+                if(isset($_SESSION['username_log_ma']) and isset($_SESSION['pwd_log_ma'])){
+                    $username = $_SESSION['username_log_ma'];
+                    $pwd = $_SESSION['pwd_log_ma'];
+                }
+                ?>
                 <form action="check_login.php" method="post">
                     <label for="username">Tên đăng nhập</label><br>
-                    <input class="input-in" type="text" id="username" name="username" placeholder="Tên đăng nhập" required>
+                    <input class="input-in" type="text" id="username" name="username" placeholder="Tên đăng nhập" value="<?php if(isset($username)){echo $username; unset($_SESSION['$username_log_ma']);} ?>" required>
                     <br>
                     <label for="password">Mật khẩu</label><br>
-                    <input class="input-in" type="password" id="password" name="password" placeholder="Mật khẩu" required>
+                    <input class="input-in" type="password" id="password" name="password" placeholder="Mật khẩu"  value="<?php if(isset($pwd)){echo $pwd; unset($_SESSION['$pwd_log_ma']);} ?>" required>
                     <br>
                     <div id="error-container">
                         <?php
-                            session_start();
                             $error = "";
                             if(isset($_SESSION['error_login_ma'])){
                                 $error = $_SESSION['error_login_ma'];

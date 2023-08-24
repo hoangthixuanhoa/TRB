@@ -29,6 +29,7 @@
             </ul>
         </header>
         <main id="home-container">
+            <h3 class="h3-content">Xem thông tin người dùng</h3>
             <?php
             $userID = $_GET['id'];
             session_start();

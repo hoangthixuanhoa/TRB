@@ -38,52 +38,56 @@ if ($conn->connect_error) {
             </ul>
         </header>
         <main id="home-container">
-            <table>
-                <tr>
-                    <th class="title">ID</th>
-                    <th class="title">Tên đăng nhập</th>
-                    <th class="title">Email</th>
-                    <th class="title">Vai trò</th>
-                    <th class="title">Người xem</th>
-                    <th class="title">Báo cáo</th>
-                </tr>
-                <?php
-                    $sql = "SELECT * FROM users;";
-                    $result = $conn->query($sql);
-                    $count = 0;
-                    if($result->num_rows>0)
-                    {
-                        while($row=$result->fetch_assoc()){
-                            $count++;
-                            //Lấy dữ liệu từ cột trong dòng hiện tại
-                            $id = $row['id'];
-                            $username = $row['username'];
-                            $email = $row['email'];
-                            $role = $row['role'];
-                            $seen = $row['seen'];
-                            $report = $row['report'];
-                            if($role=='user'){
-                                $role="Người dùng thường";
-                            }else{
-                                $role="Chuyên gia";
+            <h3 class="h3-content">Người dùng</h3>
+            <div class='content-table'>
+                <table>
+                    <tr>
+                        <th class="title">ID</th>
+                        <th class="title">Tên đăng nhập</th>
+                        <th class="title">Email</th>
+                        <th class="title">Vai trò</th>
+                        <th class="title">Người xem</th>
+                        <th class="title">Báo cáo</th>
+                        <th></th>
+                    </tr>
+                    <?php
+                        $sql = "SELECT * FROM users;";
+                        $result = $conn->query($sql);
+                        $count = 0;
+                        if($result->num_rows>0)
+                        {
+                            while($row=$result->fetch_assoc()){
+                                $count++;
+                                //Lấy dữ liệu từ cột trong dòng hiện tại
+                                $id = $row['id'];
+                                $username = $row['username'];
+                                $email = $row['email'];
+                                $role = $row['role'];
+                                $seen = $row['seen'];
+                                $report = $row['report'];
+                                if($role=='user'){
+                                    $role="Người dùng thường";
+                                }else{
+                                    $role="Chuyên gia";
+                                }
+                                echo "<tr>";
+                                echo "<td>",$id,"</td>";
+                                echo "<td>",$username,"</td>";
+                                echo "<td>",$email,"</td>";
+                                echo "<td>",$role,"</td>";
+                                echo "<td>",$seen,"</td>";
+                                echo "<td>",$report,"</td>";
+                                echo "<td><a class='a-detail' href='detail.php?id=",$id,"'>Xem</a></td>";
+                                echo "</tr>";
                             }
-                            echo "<tr>";
-                            echo "<td>",$id,"</td>";
-                            echo "<td>",$username,"</td>";
-                            echo "<td>",$email,"</td>";
-                            echo "<td>",$role,"</td>";
-                            echo "<td>",$seen,"</td>";
-                            echo "<td>",$report,"</td>";
-                            echo "<td><a href='detail.php?id=",$id,"'>Xem</a></td>";
-                            echo "</tr>";
                         }
-                    }
-                
+                    
+                    ?>
+                </table>
+                <?php
+                echo "<h3 id='count-user'>Có tất cả: ", $count, " người dùng</h3>";
                 ?>
-            </table>
-            <?php
-            echo "<h3>Có tất cả: ", $count, " người dùng</h3>";
-            ?>
+            </div>
         </main>
     </div>
 </body>

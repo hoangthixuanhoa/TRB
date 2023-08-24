@@ -50,57 +50,59 @@ if ($conn->connect_error) {
             </ul>
         </header>
         <main id="home-container">
-            <h3>Bài viết</h3>
-            <button onclick="changeWeb()">Thêm mới</button>
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Ảnh</th>
-                    <th>Tên</th>
-                    <th>Nội dung</th>
-                    <th>Ngày đăng</th>
-                    <th>trạng thái</th>
-                    <th></th>
-                </tr>
-                <?php
-                $servername = "localhost";
-                $username = "emo";
-                $password = "123456EmoR2";
-                $dbname = "emo";
-                
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                $sql = "SELECT * FROM news";
-                $result = $conn->query($sql);
-                if($result->num_rows>0)
-                {
-                    while($row=$result->fetch_assoc())
+            <h3 class="h3-content">Bài viết</h3>
+            <div class='content-table'>
+                <button class="btn-clk" onclick="changeWeb()">Thêm mới</button>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ảnh</th>
+                        <th>Tên</th>
+                        <th>Nội dung</th>
+                        <th>Ngày đăng</th>
+                        <th>trạng thái</th>
+                        <th></th>
+                    </tr>
+                    <?php
+                    $servername = "localhost";
+                    $username = "emo";
+                    $password = "123456EmoR2";
+                    $dbname = "emo";
+                    
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+                    $sql = "SELECT * FROM news";
+                    $result = $conn->query($sql);
+                    if($result->num_rows>0)
                     {
-                        $id=$row['id'];
-                        $avatar = $row['avatars'];
-                        $title = $row['title'];
-                        $description = $row['description'];
-                        $content = $row['content'];
-                        $created_at=$row['created_at'];
-                        $status = $row['status'];
-                        if ($status=='0'){
-                            $status='Disable';
-                        }elseif($status=='1'){
-                            $status='Action';
+                        while($row=$result->fetch_assoc())
+                        {
+                            $id=$row['id'];
+                            $avatar = $row['avatars'];
+                            $title = $row['title'];
+                            $description = $row['description'];
+                            $content = $row['content'];
+                            $created_at=$row['created_at'];
+                            $status = $row['status'];
+                            if ($status=='0'){
+                                $status='Disable';
+                            }elseif($status=='1'){
+                                $status='Action';
+                            }
+                            echo "<tr>";
+                            echo "<td>",$id,"</td>";
+                            echo "<td>",$avatar,"</td>";
+                            echo "<td>",$title,"</td>";
+                            echo "<td>",$description,"</td>";
+                            echo "<td>",$content,"</td>";
+                            echo "<td>",$status,"</td>";
+                            echo "<td><a class='a-detail' href='detail.php?id=$id'>Xem</a>";
+                            echo "</tr>";
                         }
-                        echo "<tr>";
-                        echo "<td>",$id,"</td>";
-                        echo "<td>",$avatar,"</td>";
-                        echo "<td>",$title,"</td>";
-                        echo "<td>",$description,"</td>";
-                        echo "<td>",$content,"</td>";
-                        echo "<td>",$status,"</td>";
-                        echo "<td><a href='detail.php?id=$id'>Xem</a>";
-                        echo "</tr>";
                     }
-                }
 
-                ?>
-            </table>
+                    ?>
+                </table>
+            </div>
         </main>
     </div>
 </body>

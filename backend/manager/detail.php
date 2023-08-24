@@ -29,40 +29,42 @@
             </ul>
         </header>
         <main id="home-container">
-            <?php
-            $userID = $_GET['id'];
-            session_start();
-            // Kết nối đến cơ sở dữ liệu (chú ý thay đổi thông tin kết nối phù hợp với máy bạn)
-            $servername = "localhost";
-            $username = "emo";
-            $password = "123456EmoR2";
-            $dbname = "emo";
+            <h3 class="h3-content">Xem bài viết</h3>
+            <div id=''>
+                <?php
+                $userID = $_GET['id'];
+                session_start();
+                // Kết nối đến cơ sở dữ liệu (chú ý thay đổi thông tin kết nối phù hợp với máy bạn)
+                $servername = "localhost";
+                $username = "emo";
+                $password = "123456EmoR2";
+                $dbname = "emo";
 
-            $conn = new mysqli($servername, $username, $password, $dbname);
+                $conn = new mysqli($servername, $username, $password, $dbname);
 
-            // Kiểm tra kết nối
-            if ($conn->connect_error) {
-                die("Kết nối thất bại: " . $conn->connect_error);
-            }
-            $query = "SELECT * FROM news WHERE id='$userID'";
-            $del = "";
-            $result = $conn->query($query);
-            if($result->num_rows>0){
-                while($row=$result->fetch_assoc()){
-                    //Lấy dữ liệu từ cột trong dòng hiện tại
-                    $id = $row['id'];
-                    $title = $row['title'];
-                    $content = $row['content'];
-                    $description = $row['description'];
+                // Kiểm tra kết nối
+                if ($conn->connect_error) {
+                    die("Kết nối thất bại: " . $conn->connect_error);
                 }
-                echo "Tiêu đề: ",$title,"<br>";
-                echo "Mô tả: ",$description,"<br>";
-                echo "Nội dung: ",$content,"<br>";
-                echo "<button class='btn' onclick='change($id)'>Sửa</button>";
-                echo "<button class='btn' onclick='deleteIF($id)'>Xóa</button>";
-            }
-            ?>
-            
+                $query = "SELECT * FROM news WHERE id='$userID'";
+                $del = "";
+                $result = $conn->query($query);
+                if($result->num_rows>0){
+                    while($row=$result->fetch_assoc()){
+                        //Lấy dữ liệu từ cột trong dòng hiện tại
+                        $id = $row['id'];
+                        $title = $row['title'];
+                        $content = $row['content'];
+                        $description = $row['description'];
+                    }
+                    echo "Tiêu đề: ",$title,"<br>";
+                    echo "Mô tả: ",$description,"<br>";
+                    echo "Nội dung: ",$content,"<br>";
+                    echo "<button class='btn' onclick='change($id)'>Sửa</button>";
+                    echo "<button class='btn' onclick='deleteIF($id)'>Xóa</button>";
+                }
+                ?>
+            </div>
         </main>
     </div>
 </body>

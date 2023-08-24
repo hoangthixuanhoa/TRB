@@ -23,6 +23,7 @@ if (isset($_POST['submit'])) {
     $_SESSION['description_news']=$description;
     $_SESSION['content_news']=$content;
     $_SESSION['status_news']=$status;
+
     if ($avatars['error'] == 0) {
         $extension = pathinfo($avatars['name'],PATHINFO_EXTENSION);
         $extension = strtolower($extension);
@@ -40,11 +41,13 @@ if (isset($_POST['submit'])) {
             header('Location: add_news.php');
         }
     }
+    $avatars_name=$avatars['name'];
+
     if (empty($error)) {
-    $sql = "INSERT INTO news (avatars,title, description, content, status) VALUES ('$avatars','$title', '$description', '$content', '$status')";
-    mysqli_query($conn,$sql);
-    header("Location: home.php");
-    exit();
+        $sql = "INSERT INTO news (avatars,title, description, content, status) VALUES ('$avatars_name','$title', '$description', '$content', '$status')";
+        mysqli_query($conn,$sql);
+        header("Location: home.php");
+        exit();
     }
 }
 $conn->close();

@@ -17,8 +17,8 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $login_input = $_POST["username"]; // Nhận giá trị từ trường "Tên đăng nhập" hoặc "Email"
     $password = $_POST["password"];
-    $_SESSION['username_log']=$login_input;
-    $_SESSION['pwd_log']= $password;
+    $_SESSION['username_log_ma']=$login_input;
+    $_SESSION['pwd_log_ma']= $password;
 
     // Kiểm tra xem người dùng đã nhập email hay tên đăng nhập
     if (filter_var($login_input, FILTER_VALIDATE_EMAIL)) {

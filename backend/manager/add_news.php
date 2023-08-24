@@ -50,24 +50,42 @@ if ($conn->connect_error) {
             </ul>
         </header>
         <main id="home-container">
-            <h3>Thêm bài viết</h3>
+            <h3 class="h3-content">Thêm bài viết</h3>
+                <?php
+                if(isset($_SESSION['$title_news']) and isset($_SESSION['description_news']) and isset($_SESSION['content_news']) and (isset($_SESSION['status_news']))){
+                    $title = $_SESSION['$title_news'];
+                    $description = $_SESSION['description_news'];
+                    $content = $_SESSION['content_news'];
+                    $status = $_SESSION['status_news'];
+                }
+                ?>
                 <form method="post" action='insert_news.php' enctype=multipart/form-data>
                     <label>Hình ảnh</label>
                     <input type="file" name="avatar" required><br>
 
                     <label for="title">Tiêu đề: </label>
-                    <input name="title" type="text" required><br>
+                    <input name="title" type="text" value="<?php if(isset($title)){echo $title; unset($_SESSION['$title_news']);} ?>" required><br>
 
                     <label for="description">Mô tả ngắn: </label>
-                    <input name="description" type="text" required><br>
+                    <input name="description" type="text" value="<?php if(isset($description)){echo $description; unset($_SESSION['$description_news']);} ?>" required><br>
 
                     <label for="content">Nội dung: </label>
-                    <input name="content" type="text" required><br>
+                    <textarea name="content" type="text" required><?php if(isset($content)){echo $content; unset($_SESSION['$content_news']);} ?></textarea><br>
 
                     <p>Trạng thái</p>
                     <select name='status'>
-                        <option value="0">Disable</option>
-                        <option value="1">Action</option>
+                        <?php
+                        if(isset($status)){
+                            if($status==0){
+                                echo "<option value='0'>Disable</option><option value='1'>Action</option>";
+                            }else{
+                                echo "<option value='1'>Action</option><option value='0'>Disable</option>";
+                            }
+                            unset($_SESSION['$status_news']);
+                        }else{
+                            echo "<option value='0'>Disable</option><option value='1'>Action</option>";
+                        }
+                        ?>
                     </select>
                     <p class='error' name='error'>
                     <?php

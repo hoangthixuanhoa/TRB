@@ -14,6 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
     $conpwd = $_POST["confirmPassword"];
+    $_SESSION['username_rig_ma']=$username;
+    $_SESSION['email_rig_ma']=$email;
+    $_SESSION['pwd_rig_ma']= $password;
+    $_SESSION['conpwd_rig_ma']= $conpwd;
 
     // Kiểm tra xem tên đăng nhập đã tồn tại chưa
     $sql_check_username = "SELECT id FROM managers WHERE username=?";

@@ -50,7 +50,7 @@ if ($conn->connect_error) {
             </ul>
         </header>
         <main id="home-container">
-            <h3>Sửa thông tin người dùng</h3>
+            <h3 class="h3-content">Sửa thông tin người dùng</h3>
             <?php
             $id = $_GET['id'];
             $sql = "SELECT * FROM users WHERE id = '$id'";
