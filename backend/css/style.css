@@ -18,16 +18,18 @@
     display: flex;
 }
 #menu-ul{
-    background-color: lightsteelblue;
     list-style: none;
     overflow: hidden;
 }
 #menu-ul li{
+    background-color: #FAA5C4;
     width: auto;
     height: 45px;
     line-height: 40px;
-    border-bottom: 1px solid #282828;
+    border: 2px solid #282828;
+    border-radius: 5px;
     padding: 0 1em;
+    margin-top: 5px;
 }
 
 a{
@@ -130,6 +132,6 @@ table th, table td{
 }
 .flex-right{
     width: 100%;
-    background-color: beige;
+    background-color: #FAA5C4;
     text-align: right;
 }

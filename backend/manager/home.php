@@ -31,7 +31,11 @@ if ($conn->connect_error) {
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/home.css">
-
+    <style>
+        body {
+        background-color: #FFF6F0;
+        }
+    </style>
     <script>
         function changeWeb(){
             window.location.href ='add_news.php';
@@ -40,11 +44,10 @@ if ($conn->connect_error) {
 </head>
 <body>
     <div id="pattern">
-        <div class="flex-left">
-            <img id="logo" src="../img/logo.png" height= "60px">
-        </div>
+        <div class="flex-left"><img id="logo" src="../img/logo.png" height= "60px"></div>
         <div class="flex-right"></div>
     </div>
+
     <div id='body'>
         <header>
             <ul id="menu-ul">
