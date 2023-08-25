@@ -31,17 +31,25 @@ if ($conn->connect_error) {
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        body{
+            background-color: #FFF6F0;
+        }
+    </style>
     <script>
         function changeWeb(){
             window.location.href ='add_news.php';
         }
     </script>
 </head>
+
 <body>
-    <div id="logo">
-        <img>
+    <div id="pattern">
+        <div class="flex-left"><img id="logo" src="../img/logo.png" height= "60px"></div>
+        <div class="flex-right"></div>
     </div>
-    <div id='body'>
+
+    <div id="body">
         <header>
             <ul id="menu-ul">
                 <li><a class="menu-content" id="home" href="home.php">Trang chủ</a></li>
@@ -49,6 +57,7 @@ if ($conn->connect_error) {
                 <li><a class="menu-content" id="pro" href="../accounts/profile.php">Pro5</a></li>
             </ul>
         </header>
+
         <main id="home-container">
             <h3 class="h3-content">Thêm bài viết</h3>
                 <?php

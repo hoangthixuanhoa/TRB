@@ -42,6 +42,7 @@ if ($conn->connect_error) {
         }
     </script>
 </head>
+
 <body>
     <div id="pattern">
         <div class="flex-left"><img id="logo" src="../img/logo.png" height= "60px"></div>
@@ -56,6 +57,7 @@ if ($conn->connect_error) {
                 <li><a class="menu-content" id="pro" href="../accounts/profile.php">Pro5</a></li>
             </ul>
         </header>
+        
         <main id="home-container">
             <h3 class="h3-content">Bài viết</h3>
             <div class='content-table'>
