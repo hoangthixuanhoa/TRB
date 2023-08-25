@@ -59,7 +59,7 @@ CREATE TABLE letters (
     FOREIGN KEY (sonhan) REFERENCES users(id)
 );
 
--- Bảng "users":
+-- Bảng "managers":
 CREATE TABLE managers (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
