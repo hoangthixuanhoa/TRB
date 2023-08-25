@@ -30,6 +30,7 @@ if ($conn->connect_error) {
     <title>Trang chủ</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/home.css">
 
     <script>
         function changeWeb(){
@@ -39,8 +40,10 @@ if ($conn->connect_error) {
 </head>
 <body>
     <div id="pattern">
-        <div class="flex-left">Logo</div>
-        <div class="flex-right">a</div>
+        <div class="flex-left">
+            <img id="logo" src="../img/logo.png" height= "60px">
+        </div>
+        <div class="flex-right"></div>
     </div>
     <div id='body'>
         <header>
